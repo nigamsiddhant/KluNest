@@ -27,7 +27,8 @@
       "mcp__ide__getDiagnostics",
       "Bash(./android/gradlew:*)",
       "Bash(rm:*)",
-      "Bash(open .)"
+      "Bash(open .)",
+      "Bash(npm install)"
     ],
     "deny": []
   }

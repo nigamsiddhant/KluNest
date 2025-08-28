@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native'
 import React from 'react'
 import { horizontalScale, moderateScale, verticalScale } from '../components/responsive'
 import GradientContainer from '../components/GradientContainer'
@@ -44,41 +44,48 @@ const LoginInitialScreen = () => {
                 >
                     <Path
                         d={`
-      M0,70 
-      C ${width * 0.25},0 ${width * 0.75},0 ${width},70 
-      Z
-    `}
+          M0,70 
+          C ${width * 0.25},0 ${width * 0.75},0 ${width},70 
+          Z
+        `}
                         fill="#ffffff"
                     />
                 </Svg>
 
-                <Text style={styles.welcomeTitle}>Welcome to KLUnest</Text>
+                <ScrollView 
+                    style={styles.scrollView}
+                    contentContainerStyle={styles.scrollContent}
+                    showsVerticalScrollIndicator={false}
+                    bounces={false}
+                >
+                    <Text style={styles.welcomeTitle}>Welcome to KLUnest</Text>
 
-                <Text style={styles.description}>
-                    A handful of model sentence structures, too generate Lorem which looks reason able.
-                </Text>
+                    <Text style={styles.description}>
+                        A handful of model sentence structures, too generate Lorem which looks reason able.
+                    </Text>
 
-                <Text style={styles.loginAsText}>Login as a</Text>
+                    <Text style={styles.loginAsText}>Login as a</Text>
 
-                <View style={styles.buttonRow}>
-                    <TouchableOpacity style={styles.teacherButton} onPress={handleTeacherLogin}>
-                        <Text style={styles.teacherButtonText}>Teacher</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.studentButton} onPress={handleStudentLogin}>
-                        <Text style={styles.studentButtonText}>Student</Text>
-                    </TouchableOpacity>
-                </View>
+                    <View style={styles.buttonRow}>
+                        <TouchableOpacity style={styles.teacherButton} onPress={handleTeacherLogin}>
+                            <Text style={styles.teacherButtonText}>Teacher</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.studentButton} onPress={handleStudentLogin}>
+                            <Text style={styles.studentButtonText}>Student</Text>
+                        </TouchableOpacity>
+                    </View>
 
-                <Text style={styles.registerText}>Don't have account? then register as</Text>
+                    <Text style={styles.registerText}>Don't have account? then register as</Text>
 
-                <View style={styles.buttonRow}>
-                    <TouchableOpacity style={styles.teacherButton} onPress={handleTeacherRegister}>
-                        <Text style={styles.teacherButtonText}>Teacher</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.studentButton} onPress={handleStudentRegister}>
-                        <Text style={styles.studentButtonText}>Student</Text>
-                    </TouchableOpacity>
-                </View>
+                    <View style={styles.buttonRow}>
+                        <TouchableOpacity style={styles.teacherButton} onPress={handleTeacherRegister}>
+                            <Text style={styles.teacherButtonText}>Teacher</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.studentButton} onPress={handleStudentRegister}>
+                            <Text style={styles.studentButtonText}>Student</Text>
+                        </TouchableOpacity>
+                    </View>
+                </ScrollView>
 
             </View>
         </GradientContainer >
@@ -115,11 +122,17 @@ const styles = StyleSheet.create({
     bottomContent: {
         backgroundColor: '#FFFFFF',
         width: '100%',
-        paddingHorizontal: horizontalScale(30),
-        paddingVertical: verticalScale(40),
         height: height * 0.65,
-        alignItems: 'center',
         position: 'relative',
+    },
+    scrollView: {
+        flex: 1,
+        paddingHorizontal: horizontalScale(30),
+        paddingTop: verticalScale(40),
+    },
+    scrollContent: {
+        alignItems: 'center',
+        paddingBottom: verticalScale(20),
     },
     welcomeTitle: {
         fontSize: moderateScale(24),
@@ -168,7 +181,7 @@ const styles = StyleSheet.create({
     },
     teacherButtonText: {
         color: '#FFFFFF',
-        fontSize: moderateScale(16),
+        fontSize: moderateScale(12),
         fontWeight: '600',
     },
     studentButton: {
@@ -181,7 +194,7 @@ const styles = StyleSheet.create({
     },
     studentButtonText: {
         color: '#FFFFFF',
-        fontSize: moderateScale(16),
+        fontSize: moderateScale(12),
         fontWeight: '600',
     },
 });

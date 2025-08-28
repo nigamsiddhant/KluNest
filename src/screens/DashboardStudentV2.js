@@ -259,7 +259,7 @@ const styles = StyleSheet.create({
         paddingBottom: 30,
     },
     section: {
-        marginTop: 25,
+        marginTop: 15,
     },
     sectionTitle: {
         fontSize: 18,
@@ -274,13 +274,13 @@ const styles = StyleSheet.create({
     },
     subjectCard: {
         width: '47%',
-        marginBottom: 20,
+        marginBottom: 12,
         alignItems: 'center',
         justifyContent: 'center',
     },
     subjectImage: {
-        width: 160,
-        height: 120,
+        width: 140,
+        height: 100,
     },
     planCard: {
         backgroundColor: '#FFF',
