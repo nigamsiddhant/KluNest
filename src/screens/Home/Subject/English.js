@@ -27,11 +27,11 @@
 //       const UserDataID = await AsyncStorage.getItem('UserDataID');
 //       const UserToken = await AsyncStorage.getItem('UserToken');
 //       const UserClassID = await AsyncStorage.getItem('UserClassID');
-      
+
 //       console.log('>>>>>>>>', UserDataID);
 //       console.log(UserToken);
 //       console.log(UserClassID);
-  
+
 //       const response = await axios.post(`${BASE_URL}${SUBJECT_CHAPTERS}`, {
 //         subject_id: id,
 //         class_id: UserClassID,
@@ -41,24 +41,24 @@
 //           Authorization: `Bearer ${UserToken}`,
 //         }
 //       });
-  
+
 //       console.log('Api response chapters', response.data);
-  
+
 //       if (response?.data?.status === 'success') {
 //         const chapters = response.data.chapters || [];
-        
-       
+
+
 //         if (chapters.length > 1 && chapters[1]?.id) {
 //           let studentChaptId = chapters[1].id;
 //           setStudentChapterId(studentChaptId);
 //           console.log('Student Chapter ID:', studentChaptId);
 //         } else {
-          
+
 //           console.log('No data available for chapter 1');
 //           setStudentChapterId(null); 
 //           // Alert.alert('No Data', 'Chapter 1 data is not available.');
 //         }
-  
+
 //         setChaptersData(chapters); 
 //       } else {
 //         console.error('Failed to fetch chapters:', response?.data?.message || 'Unknown error');
@@ -71,7 +71,7 @@
 //       setLoding(false);
 //     }
 //   };
-  
+
 
 //   const Chapter = ({ navigation, item, index }) => {
 //     const handleChapterClick = (item, index) => {
@@ -99,7 +99,7 @@
 //         navigation.navigate('Quiz', { id: item.id, name: item.name , studentChaptId:studentChapterId});
 //       }
 //     };
-  
+
 //     return (
 //       <View style={{ flex: 1 }}>
 //       <View>
@@ -112,7 +112,7 @@
 //               {item.name}
 //             </Text>
 //           </View>
-  
+
 //           {index >= 1 ? ( // For the second chapter (locked)
 //             <View style={styles.lockedContainer}>
 //               {/* <Image
@@ -146,7 +146,7 @@
 
 //       <View style={{ flexDirection: 'row', justifyContent: 'space-between', margin: 30 }}>
 //         <Text style={styles.ChapterTxt}>Chapters</Text>
-     
+
 //       </View>
 
 //       <View>
@@ -181,8 +181,8 @@
 //     padding:moderateScale(12),
 //     backgroundColor: '#E9E9E9',
 //     text:'center',
-  
-    
+
+
 // },
 
 // backBtn:{
@@ -190,7 +190,7 @@
 //     height:verticalScale(20),
 //     resizeMode:'contain',
 //     marginTop:moderateScale(10)
-    
+
 // },
 // scienceTxt:{
 //     fontSize:22,
@@ -198,7 +198,7 @@
 //     alignSelf:'center',
 //     marginLeft:moderateScale(70),
 //     color:THEME_COLOR2,
-    
+
 // },
 
 // ChapterTxt:{
@@ -219,7 +219,7 @@
 //   alignItems:'center',
 //   alignSelf:'center',
 //   elevation:5
-  
+
 
 
 
@@ -301,14 +301,14 @@ const English = ({ navigation, route }) => {
     try {
       const response = await axios.get(`${BASE_URL}${STUDENT_SUBSCRIPTION}${UserDataID}`);
       console.log("subscription plan >>>>> ", response.data);
-      
-       if(response.data.code === 200){
-      const paymentStatus = response.data.data.status || false; // Assuming payment status is in the response
-      setPaymentStatus(paymentStatus); // Set payment status to state
-       }
-       else if(response.data.code === 404){
+
+      if (response.data.code === 200) {
+        const paymentStatus = response.data.data.status || false; // Assuming payment status is in the response
+        setPaymentStatus(paymentStatus); // Set payment status to state
+      }
+      else if (response.data.code === 404) {
         Alert.alert('Subscription', "Please Purches all the Chapter ");
-       }
+      }
 
     } catch (error) {
       console.error("Error fetching data", error.message || error);
@@ -388,8 +388,9 @@ const English = ({ navigation, route }) => {
           { cancelable: false }
         );
       } else {
-        navigation.navigate('Quiz', { id: item.id, name: item.name, studentChaptId: studentChapterId, subjectId: route.params.id });
-        console.log("chapter.......id", item.id);
+        navigation.navigate('SubCategoryV2', { id: item.id, name: item.name, studentChaptId: studentChapterId, subjectId: route.params.id, item: item });
+        // navigation.navigate('Quiz', { id: item.id, name: item.name, studentChaptId: studentChapterId, subjectId: route.params.id, item: item });
+        // console.log("chapter.......id", item.id);
       }
     };
 
@@ -406,12 +407,12 @@ const English = ({ navigation, route }) => {
           </View>
 
           {paymentStatus || index === 0 ? ( // If payment is done or it's the first chapter
-            <LinearGradient
-              colors={[THEME_COLOR, THEME_COLOR2]}
+            <View
+
               style={styles.openBtn}
             >
               <Text style={{ fontSize: 16, color: 'white' }}>Open</Text>
-            </LinearGradient>
+            </View>
           ) : (
             <View style={styles.lockedContainer}>
               {/* Add your lock icon or text */}
@@ -420,19 +421,26 @@ const English = ({ navigation, route }) => {
           )}
         </TouchableOpacity>
 
-        
+
       </View>
     );
   };
 
   return (
     <View style={styles.container}>
-      <View style={styles.heading}>
+      {/* <View style={styles.heading}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image source={require('../../../images/BackBtn.png')} style={styles.backBtn} />
         </TouchableOpacity>
         <Text style={styles.scienceTxt}>{name} Chapters</Text>
-      </View>
+      </View> */}
+
+      <LinearGradient colors={['#263755', '#1ABC9C']} style={styles.heading}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Image source={require('../../../images/BackBtn.png')} style={styles.backBtn} />
+        </TouchableOpacity>
+        <Text style={styles.headingTxt}>  {name} Chapters</Text>
+      </LinearGradient>
 
       <View style={{ flexDirection: 'row', justifyContent: 'space-between', margin: 30 }}>
         <Text style={styles.ChapterTxt}>Chapters</Text>
@@ -481,7 +489,7 @@ const styles = StyleSheet.create({
   ChapterTxt: {
     fontSize: 22,
     fontWeight: '700',
-    color: THEME_COLOR2,
+    color: '#1ABC9C',
   },
   viewChapter: {
     width: horizontalScale(330),
@@ -495,14 +503,22 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     elevation: 5,
   },
+  // openBtn1: {
+  //   width: horizontalScale(70),
+  //   height: verticalScale(30),
+  //   backgroundColor: THEME_COLOR,
+  //   justifyContent: 'center',
+  //   alignItems: 'center',
+  //   borderRadius: 20,
+  //   elevation: 10,
+  // },
   openBtn: {
+    backgroundColor: '#1ABC9C',
     width: horizontalScale(70),
     height: verticalScale(30),
-    backgroundColor: THEME_COLOR,
-    justifyContent: 'center',
+    borderRadius: 30,
     alignItems: 'center',
-    borderRadius: 20,
-    elevation: 10,
+    justifyContent: 'center',
   },
   lockedContainer: {
     width: horizontalScale(70),
@@ -513,4 +529,27 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     elevation: 10,
   },
+
+  backBtn: {
+    width: horizontalScale(25),
+    height: verticalScale(20),
+    resizeMode: 'contain',
+    tintColor: 'white',
+    alignSelf: 'center',
+  },
+
+  headingTxt: {
+    fontSize: 18,
+    fontWeight: '600',
+    alignSelf: 'center',
+    color: 'white',
+  },
+
+  heading: {
+    width: horizontalScale(360),
+    height: verticalScale(60),
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: moderateScale(12),
+  }
 });

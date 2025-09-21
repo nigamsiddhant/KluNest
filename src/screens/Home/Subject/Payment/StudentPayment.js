@@ -40,14 +40,15 @@ const StudentPayment = ({ navigation }) => {
       <TouchableOpacity style={styles.subscriptionCard} onPress={() => { handleNavigateToPlan('1') }}>
         <View style={styles.subscriptionContent}>
           <Text style={styles.priceText}>Content View</Text>
-          <Text style={styles.descriptionText}>Short Description of this subscription</Text>
+          <Text style={styles.descriptionText}>Only content view - Enjoy syllabus - aligned learning materials where each topic is presented with text based explanation, visually engaging images, and related videos - designed to make concepts clearer and more interactive.  </Text>
         </View>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.subscriptionCard} onPress={() => { handleNavigateToPlan('2') }}>
         <View style={styles.subscriptionContent}>
           <Text style={styles.priceText}>Content View & Communication</Text>
-          <Text style={styles.descriptionText}>Short Description of this subscription</Text>
+          <Text style={styles.descriptionText}>Content view + communication with teachers -
+            Everything in content view with Scheduled One - O - One meeting with teachers</Text>
         </View>
       </TouchableOpacity>
 
@@ -206,7 +207,7 @@ const styles = StyleSheet.create({
   },
 
   priceText: {
-    fontSize: 14.37,
+    fontSize: 12,
     fontWeight: '600',
     color: '#2C5AA0',
     marginBottom: verticalScale(4),
@@ -216,6 +217,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#666',
     fontWeight: '400',
+    marginBottom: verticalScale(4),
   },
 
   buyNowButton: {

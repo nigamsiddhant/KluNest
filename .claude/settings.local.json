@@ -28,7 +28,14 @@
       "Bash(./android/gradlew:*)",
       "Bash(rm:*)",
       "Bash(open .)",
-      "Bash(npm install)"
+      "Bash(npm install)",
+      "Bash(npm cache clean:*)",
+      "Bash(chmod:*)",
+      "Bash(android/gradlew assembleRelease:*)",
+      "Bash(pkill:*)",
+      "Bash(brew list:*)",
+      "Bash(true)",
+      "Bash(open:*)"
     ],
     "deny": []
   }

@@ -1,5 +1,5 @@
-import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
-import React, {useEffect, useState} from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import React, { useEffect, useState } from 'react';
 import {
   horizontalScale,
   moderateScale,
@@ -7,13 +7,13 @@ import {
 } from '../../components/responsive';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
-import {BASE_URL, STUDENT_MEETING} from '../../constant/StringAPI';
-import {FlatList} from 'react-native-gesture-handler';
-import {THEME_COLOR, THEME_COLOR2} from '../../utils/Colors';
+import { BASE_URL, STUDENT_MEETING } from '../../constant/StringAPI';
+import { FlatList } from 'react-native-gesture-handler';
+import { THEME_COLOR, THEME_COLOR2 } from '../../utils/Colors';
 import Loader from '../../components/Loader';
 import { useFocusEffect } from '@react-navigation/native';
 
-const Classes = ({navigation}) => {
+const Classes = ({ navigation }) => {
   const [loading, setLoading] = useState(false);
   const [studentDoubtData, setStudentDoubtData] = useState([]);
 
@@ -64,28 +64,28 @@ const Classes = ({navigation}) => {
     }
   };
 
-  const renderItem = ({item}) => {
+  const renderItem = ({ item }) => {
     console.log('Item....', item);
     return (
       <View style={styles.itemContainer}>
-        <View style={{flexDirection: 'row', width: horizontalScale(200)}}>
-          <Text style={styles.containerTxt}>Chapter :</Text>
+        <View style={{ flexDirection: 'row', width: horizontalScale(200) }}>
+          <Text style={styles.containerTxt}>Chapters :</Text>
           <Text> {item.chapter_name}</Text>
         </View>
 
-        <View style={{flexDirection: 'row'}}>
+        <View style={{ flexDirection: 'row' }}>
           <Text style={styles.containerTxt}>Subject :</Text>
           <Text> {item.subject_name}</Text>
         </View>
-        <View style={{flexDirection: 'row', width: horizontalScale(200)}}>
+        <View style={{ flexDirection: 'row', width: horizontalScale(200) }}>
           <Text style={styles.containerTxt}>Content :</Text>
           <Text> {item.question_name}</Text>
         </View>
-        <View style={{flexDirection: 'row'}}>
+        <View style={{ flexDirection: 'row' }}>
           <Text style={styles.containerTxt}>Teacher :</Text>
           <Text> {item.teacher_name}</Text>
         </View>
-        <View style={{flexDirection: 'row'}}>
+        <View style={{ flexDirection: 'row' }}>
           <Text style={styles.containerTxt}>Meeting Date & Time :</Text>
           <Text> {item.meeting_datetime}</Text>
         </View>
@@ -94,7 +94,7 @@ const Classes = ({navigation}) => {
   };
 
   return (
-    <View style={{flex: 1}}>
+    <View style={{ flex: 1 }}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image
@@ -109,7 +109,7 @@ const Classes = ({navigation}) => {
         {/* FlatList to show the classes */}
         <FlatList
           style={styles.ViewCamp}
-          contentContainerStyle={{paddingBottom: moderateScale(50)}}
+          contentContainerStyle={{ paddingBottom: moderateScale(50) }}
           data={studentDoubtData.slice().reverse()} // Reverses the array
           renderItem={renderItem}
           keyExtractor={item => item.id.toString()}
@@ -119,9 +119,9 @@ const Classes = ({navigation}) => {
           refreshing={loading} // Show the loader when refreshing
         />
       </View>
-      
+
       {/* The global loader for the whole screen */}
-      <Loader visible={loading}/>
+      <Loader visible={loading} />
     </View>
   );
 };

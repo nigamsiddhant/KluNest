@@ -284,16 +284,14 @@ const Profile = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.heading}>
 
+
+      <LinearGradient colors={['#263755', '#1ABC9C']} style={styles.heading}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Image
-            source={require('../../images/BackBtn.png')}
-            style={styles.backBtn}
-          />
+          <Image source={require('../../images/BackBtn.png')} style={styles.backBtn} />
         </TouchableOpacity>
-        <Text style={styles.headTxt}>Profile</Text>
-      </View>
+        <Text style={styles.headingTxt}>  Profile</Text>
+      </LinearGradient>
       <ScrollView style={styles.bottomBox}>
         <View style={styles.viewImg}>
           {image && image.uri ? (
@@ -348,15 +346,26 @@ const Profile = () => {
 
 
 
-        <LinearGradient
+        {/* <LinearGradient
           colors={[THEME_COLOR, THEME_COLOR2]}
           style={[styles.LinearBtn, { marginBottom: moderateScale(-25) }]}>
           <TouchableOpacity style={styles.LoginBtn} onPress={updateBtn}>
             <Text style={styles.LoginBtn}>Update</Text>
           </TouchableOpacity>
-        </LinearGradient>
+        </LinearGradient> */}
 
-        <LinearGradient
+        <TouchableOpacity style={styles.buyNowButton} onPress={updateBtn}>
+          <Text style={styles.buyNowText}>Update</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.logoutButton} onPress={() => {
+          navigation.replace('LoginInitialScreen');
+          logout()
+        }}>
+          <Text style={styles.logoutText}>Logout</Text>
+        </TouchableOpacity>
+
+        {/* <LinearGradient
           colors={['#D6443D', 'red']}
           style={[styles.LinearBtn, { marginBottom: moderateScale(3) }]}>
           <TouchableOpacity style={styles.LoginBtn}
@@ -366,7 +375,7 @@ const Profile = () => {
             }}>
             <Text style={styles.LoginBtn}>Logout</Text>
           </TouchableOpacity>
-        </LinearGradient>
+        </LinearGradient> */}
 
 
         <View style={styles.termsView}>
@@ -483,6 +492,43 @@ const styles = StyleSheet.create({
     marginLeft: 45,
     marginBottom: -19,
   },
+  buyNowButton: {
+    backgroundColor: '#1ABC9C',
+    marginBottom: moderateScale(-25),
+    width: horizontalScale(290),
+    height: verticalScale(40),
+    borderRadius: 30,
+    alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: moderateScale(50),
+  },
+  buyNowText: {
+    width: '100%',
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: '600',
+    textAlign: 'center',
+  },
+  logoutButton: {
+    backgroundColor: '#FFFFFF',
+    width: horizontalScale(290),
+    height: verticalScale(40),
+    borderRadius: 30,
+    alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: moderateScale(50),
+    borderWidth: 1,
+    borderColor: '#1ABC9C',
+  },
+  logoutText: {
+    width: '100%',
+    color: '#1ABC9C',
+    fontSize: 16,
+    fontWeight: '600',
+    textAlign: 'center',
+  },
   LinearBtn: {
     width: horizontalScale(290),
     height: verticalScale(40),
@@ -490,7 +536,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 10,
-    marginTop: moderateScale(50),
   },
   LoginBtn: {
     width: '100%',
@@ -533,6 +578,29 @@ const styles = StyleSheet.create({
     right: 10,
     top: -5,
   },
+  backBtn: {
+    width: horizontalScale(25),
+    height: verticalScale(20),
+    resizeMode: 'contain',
+    tintColor: 'white',
+    alignSelf: 'center',
+  },
+
+  headingTxt: {
+    fontSize: 18,
+    fontWeight: '600',
+    alignSelf: 'center',
+    color: 'white',
+  },
+
+  heading: {
+    width: horizontalScale(360),
+    height: verticalScale(60),
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: moderateScale(12),
+  },
+
   termsView: {
     marginTop: 50,
     // flexDirection:'row',

@@ -11,6 +11,7 @@ import Login from '../screens/Login';
 import Signup from '../screens/Signup';
 import Home from '../screens/Home';
 import English from '../screens/Home/Subject/English';
+import SubCategoryV2 from '../screens/Home/Subject/subCategory';
 
 import HomePage from '../screens/Home/HomePage';
 import Profile from '../screens/Home/Profile';
@@ -123,6 +124,11 @@ const MainNavigator = () => {
         <Stack.Screen
           name="TabNavigator"
           component={TabNavigator}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="SubCategoryV2"
+          component={SubCategoryV2}
           options={{ headerShown: false }}
         />
         <Stack.Screen

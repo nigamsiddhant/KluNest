@@ -1,19 +1,20 @@
-import {View, Text, Image, StyleSheet} from 'react-native';
+import { View, Text, Image, StyleSheet } from 'react-native';
 import React from 'react';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomePage from '../screens/Home/HomePage';
 import Classes from '../screens/Home/Classes';
 import Profile from '../screens/Home/Profile';
+import ChatScreen from '../screens/Home/ChatScreen';
 import {
   horizontalScale,
   moderateScale,
   verticalScale,
 } from '../components/responsive';
-import {useFocusEffect, useNavigation} from '@react-navigation/native';
-import {BASE_URL, STUDENT_CALL_STATUS} from '../constant/StringAPI';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import { BASE_URL, STUDENT_CALL_STATUS } from '../constant/StringAPI';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
-import {PERMISSIONS, request, RESULTS} from 'react-native-permissions';
+import { PERMISSIONS, request, RESULTS } from 'react-native-permissions';
 import PaymentHistory from '../screens/Home/PaymentHistory';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -98,7 +99,7 @@ const TabNavigator = () => {
 
   return (
     <Tab.Navigator
-      sceneContainerStyle={{flex: 1}}
+      sceneContainerStyle={{ flex: 1 }}
       screenOptions={{
         tabBarHideOnKeyboard: true,
       }}>
@@ -107,41 +108,61 @@ const TabNavigator = () => {
         component={HomePage}
         options={{
           headerShown: false,
-          tabBarIcon: ({focused}) => (
+          tabBarIcon: ({ focused }) => (
             <Image
               source={require('../images/HomeIcon.png')}
               style={[
                 styles.tabIcon,
-                {tintColor: focused ? '#7F3DFF' : '#C6C6C6'},
+                { tintFColor: focused ? '#7F3DFF' : '#C6C6C6' },
               ]}
             />
           ),
-          tabBarLabel: ({focused}) => (
+          tabBarLabel: ({ focused }) => (
             <Text
-              style={{color: focused ? '#7F3DFF' : '#C6C6C6', fontSize: 12}}>
+              style={{ color: focused ? '#7F3DFF' : '#C6C6C6', fontSize: 12 }}>
               Home
             </Text>
           ),
         }}
       />
       <Tab.Screen
-        name="Classes"
+        name="Chat"
+        component={ChatScreen}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ focused }) => (
+            <Icon
+              name="chat"
+              size={moderateScale(25)}
+              color={focused ? '#7F3DFF' : '#C6C6C6'}
+            />
+          ),
+          tabBarLabel: ({ focused }) => (
+            <Text
+              style={{ color: focused ? '#7F3DFF' : '#C6C6C6', fontSize: 12 }}>
+              Doubts
+            </Text>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Classess"
         component={Classes}
         options={{
           headerShown: false,
-          tabBarIcon: ({focused}) => (
+          tabBarIcon: ({ focused }) => (
             <Image
               source={require('../images/ClassesIcon.png')}
               style={[
                 styles.tabIcon,
-                {tintColor: focused ? '#7F3DFF' : '#C6C6C6'},
+                { tintColor: focused ? '#7F3DFF' : '#C6C6C6' },
               ]}
             />
           ),
-          tabBarLabel: ({focused}) => (
+          tabBarLabel: ({ focused }) => (
             <Text
-              style={{color: focused ? '#7F3DFF' : '#C6C6C6', fontSize: 12}}>
-              Doubt Classes
+              style={{ color: focused ? '#7F3DFF' : '#C6C6C6', fontSize: 12 }}>
+              Meetings
             </Text>
           ),
         }}
@@ -151,7 +172,7 @@ const TabNavigator = () => {
         component={PaymentHistory}
         options={{
           headerShown: false,
-          tabBarIcon: ({focused}) => {
+          tabBarIcon: ({ focused }) => {
             return (
               <Icon
                 name="payment"
@@ -160,10 +181,10 @@ const TabNavigator = () => {
               />
             );
           },
-          tabBarLabel: ({focused}) =>{
-            return(
-              <Text style={{color: focused ? '#7F3DFF' : '#C6C6C6', fontSize: 12}} >
-               Payment
+          tabBarLabel: ({ focused }) => {
+            return (
+              <Text style={{ color: focused ? '#7F3DFF' : '#C6C6C6', fontSize: 12 }} >
+                Payment
               </Text>
             )
           }
@@ -175,23 +196,23 @@ const TabNavigator = () => {
         component={Profile}
         options={{
           headerShown: false,
-          tabBarIcon: ({focused}) => {
+          tabBarIcon: ({ focused }) => {
             return (
               // Add return statement here
               <Image
                 source={require('../images/ProfileIcon.png')}
                 style={[
                   styles.tabIcon,
-                  {tintColor: focused ? '#7F3DFF' : '#C6C6C6'},
+                  { tintColor: focused ? '#7F3DFF' : '#C6C6C6' },
                 ]}
               />
             );
           },
-          tabBarLabel: ({focused}) => {
+          tabBarLabel: ({ focused }) => {
             return (
               // Add return statement here
               <Text
-                style={{color: focused ? '#7F3DFF' : '#C6C6C6', fontSize: 12}}>
+                style={{ color: focused ? '#7F3DFF' : '#C6C6C6', fontSize: 12 }}>
                 Profile
               </Text>
             );
@@ -209,5 +230,28 @@ const styles = StyleSheet.create({
     height: verticalScale(25),
     resizeMode: 'contain',
     marginTop: 5,
+  },
+
+  backBtn: {
+    width: horizontalScale(25),
+    height: verticalScale(20),
+    resizeMode: 'contain',
+    marginTop: moderateScale(10),
+    marginLeft: moderateScale(10),
+  },
+
+  headingTxt: {
+    fontSize: 18,
+    fontWeight: '600',
+    alignSelf: 'center',
+    color: 'white',
+  },
+
+  heading: {
+    width: horizontalScale(360),
+    height: verticalScale(60),
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: moderateScale(12),
   },
 });

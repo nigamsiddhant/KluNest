@@ -59,6 +59,7 @@ const DashboardStudentV2 = ({
     // Use API data if available, otherwise fallback to default subjects
     const subjects = subjectData.length > 0
         ? subjectData.map((subject) => {
+            console.log('API Subjects:', subject);
             console.log('API Subject name:', subject.name);
             const image = getSubjectImage(subject.name);
             console.log('Selected image:', image);

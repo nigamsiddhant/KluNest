@@ -49,25 +49,25 @@
 //     const currentAnswer = answers[currentQuestionIndex];
 //     const questionId = currentAnswer.questionId; 
 //     const answer = currentAnswer.answer; 
-  
+
 //     if (!questionId) return; 
-  
+
 //     try {
 //       const UserDataID = await AsyncStorage.getItem("UserDataID");
 //       const UserToken = await AsyncStorage.getItem("UserToken");
-  
+
 //       const formData = new FormData();
 //       formData.append("student_id", UserDataID);
 //       formData.append("question_id", questionId);
 //       formData.append("answer", answer);
-  
+
 //       const response = await axios.post(`${BASE_URL}${ANSWER_SUBMIT}`, formData, {
 //         headers: {
 //           'Content-Type': 'multipart/form-data',
 //           'Authorization': `Bearer ${UserToken}`,
 //         },
 //       });
-  
+
 //       if (response?.data?.status === "success") {
 //         console.log("Answer submitted successfully");
 //       }
@@ -79,25 +79,25 @@
 //   const handleNext = () => {
 //     // Check if the current answer field is empty
 //     const currentAnswer = answers[currentQuestionIndex]?.answer.trim();
-    
+
 //     if (currentAnswer) {
 //       handleAnswerSubmit();
 //     } else {
 //       // Alert.alert("Warning", "Please provide an answer before proceeding.");
 //       // return; // Exit the function if the answer is empty
 //     }
-  
+
 //     if (currentQuestionIndex < questionData.length - 1) {
 //       setCurrentQuestionIndex(currentQuestionIndex + 1);
 //     } else {
 //       console.log("Quiz ended");
 //       Alert.alert("Thank you", "Thank you for submitting your answers");
-  
+
 //       // Filter the answers to get only answered questions
 //       const answeredQuestions = answers.filter(answer => answer.answer.trim() !== '');
 //       navigation.navigate('Result', { id: questionData.length, answers: answeredQuestions, name:name });
 //     }
-  
+
 //     Animated.timing(fadeAnim, {
 //       toValue: 0,
 //       duration: 100,
@@ -110,7 +110,7 @@
 //       }).start();
 //     });
 //   };
-  
+
 //   const handleSubmit = () => {
 //     Alert.alert(
 //       "Confirm Submission",
@@ -129,7 +129,7 @@
 //                 questionName: answer.questionName, // Include questionName
 //                 answer: answer.answer,
 //               }));
-  
+
 //             console.log("answers ====>>>>", answers[0].questionName);
 //             navigation.navigate('Result', { id: questionData.length, answers: answeredQuestions });
 //           }, 
@@ -139,8 +139,8 @@
 //       { cancelable: false }
 //     );
 //   };
-  
-  
+
+
 //   const renderOptions = () => (
 //     <View style={{ flex: 1 }}>
 //       {/* <TextInput
@@ -305,8 +305,9 @@
 
 
 
+import { moderateScale } from '../../../../components/responsive';
 
-
+import LinearGradient from 'react-native-linear-gradient';
 import React, { useEffect, useState } from "react";
 import {
   View,
@@ -328,47 +329,56 @@ import Icon from 'react-native-vector-icons/MaterialIcons'; // Add this import f
 
 
 const QuizPage = ({ navigation, route }) => {
-  const { id, name,studentChaptId,subjectId } = route.params;
+  const { id, name, studentChaptId, subjectId, item, indexSelected } = route.params;
   console.log("params head..", route.params);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [questionData, setQuestionData] = useState([]);
   const [fadeAnim] = useState(new Animated.Value(1));
   const [questionID, setQuestionID] = useState()
-  const [ questionName, setQuestionName] = useState()
+  const [questionName, setQuestionName] = useState()
 
   const [contactData, setContactData] = useState(null);
 
-  
-  console.log("studentChaptId------------------",studentChaptId)
+
+  console.log("studentChaptId------------------", studentChaptId)
   // console.log("subject id........",id)
   // console.log("questionID......" ,questionID)
   // console.log("..........................",questionName)
 
-  console.log("contact qury ...",contactData)
+  console.log("contact qury ...", contactData)
 
   useEffect(() => {
-    fetchQuestionData();
-  }, []);
+    if (item) {
+      console.log('Using questions from item:', item);
+      setCurrentQuestionIndex(indexSelected);
+      setQuestionData(item.topics[indexSelected].questions);
+      setQuestionID(item.topics[indexSelected].questions[0]?.id);
+      setQuestionName(item.topics[indexSelected].questions[0]?.question);
+    } else {
+      console.log('No questions in item, fetching from API');
+      fetchQuestionData();
+    }
+  }, [item]);
 
   const fetchQuestionData = async () => {
     try {
-      const UserToken = await AsyncStorage.getItem('UserToken');
-      const response = await axios.post(`${BASE_URL}${QUESTION}`, { chapter_id: id }, {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${UserToken}`,
-        },
-      });
-      
-      console.log(response.data)
+      // const UserToken = await AsyncStorage.getItem('UserToken');
+      // const response = await axios.post(`${BASE_URL}${QUESTION}`, { chapter_id: id }, {
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //     Authorization: `Bearer ${UserToken}`,
+      //   },
+      // });
 
-      console.log(".........",response.data.questions[0].id)
-      console.log(".........",response.data.questions[1].question)
-      setQuestionID(response.data.questions[0].id)
-      setQuestionName(response.data.questions[0].question)
+      // console.log(response.data)
 
-      console.log("------->>>>Img  :  ", response.data.questions[0]?.question_image);
-      setQuestionData(response.data.questions);
+      // console.log(".........", response.data.questions[0].id)
+      // console.log(".........", response.data.questions[1].question)
+      // setQuestionID(response.data.questions[0].id)
+      // setQuestionName(response.data.questions[0].question)
+
+      // console.log("------->>>>Img  :  ", response.data.questions[0]?.question_image);
+      // setQuestionData(response.data.questions);
 
 
     } catch (error) {
@@ -376,8 +386,8 @@ const QuizPage = ({ navigation, route }) => {
     }
   };
 
-    
- 
+
+
 
   const handleContact = () => {
     Alert.alert(
@@ -395,7 +405,7 @@ const QuizPage = ({ navigation, route }) => {
             try {
               // Call the API here and wait for the response
               const response = await contactAdminApi();
-  
+
               if (response && response.message) {
                 // If the response contains a 'message', show it in the alert
                 Alert.alert(
@@ -448,18 +458,18 @@ const QuizPage = ({ navigation, route }) => {
       { cancelable: false }
     );
   };
-  
-  
+
+
   const contactAdminApi = async () => {
     console.log("contact to admin......");
-  
+
     try {
       const UserDataID = await AsyncStorage.getItem('UserDataID');
       const UserToken = await AsyncStorage.getItem('UserToken');
       const SubjectID = await AsyncStorage.getItem('SubjectID');
       console.log("Subject .....", SubjectID);
       console.log("subject data...", id);
-  
+
       const response = await axios.post(
         `${BASE_URL}${CONTACT_ADMIN}`,
         {
@@ -475,18 +485,18 @@ const QuizPage = ({ navigation, route }) => {
           },
         }
       );
-  
+
       console.log("contact response", response.data);
-  
+
       // Return the response data (message) that we will use in the alert
       return response.data;
-  
+
     } catch (error) {
       console.error("Error fetching data:", error.message || error);
       throw error; // Rethrow the error so that the caller can handle it
     }
   };
-  
+
 
 
 
@@ -496,20 +506,20 @@ const QuizPage = ({ navigation, route }) => {
   }, [id]);
 
   const handleNext = () => {
-    if (currentQuestionIndex < questionData.length - 1) {
+    if (currentQuestionIndex < item.topics.length - 1) {
       // Update the current question index
+      console.log("sawvehwjheqwe123", currentQuestionIndex);
       const nextIndex = currentQuestionIndex + 1;
+      console.log("sawvehwjheqwe123", nextIndex);
       setCurrentQuestionIndex(nextIndex);
-  
-      // Update questionID with the ID of the next question
-      setQuestionID(questionData[nextIndex]?.id);
-      setQuestionName(questionData[nextIndex]?.question)
-  
+      setQuestionID(item.topics[nextIndex].questions[0]?.id);
+      setQuestionName(item.topics[nextIndex].questions[0]?.question);
+
     } else {
       Alert.alert("Thank you", "Thank you for completing the quiz!");
       navigation.navigate('Result', { id: questionData.length, name: name });
     }
-  
+
     // Animating fade transition
     Animated.timing(fadeAnim, {
       toValue: 0,
@@ -523,19 +533,19 @@ const QuizPage = ({ navigation, route }) => {
       }).start();
     });
   };
-  
+
   const handleSubmit = () => {
     Alert.alert(
       "Confirm ",
       "Are you sure you want to End ?",
       [
         { text: "No", onPress: () => console.log("Submission canceled"), style: "cancel" },
-        { 
-          text: "Yes", 
+        {
+          text: "Yes",
           onPress: () => {
             navigation.navigate('Result', { id: questionData.length, name: name });
-          }, 
-          style: "default" 
+          },
+          style: "default"
         }
       ],
       { cancelable: false }
@@ -601,10 +611,10 @@ const QuizPage = ({ navigation, route }) => {
   //           contactAdminApi()
   //             .then((response) => {
   //               // Assuming `response.data` contains the required contact data
-  
+
   //               // Store the received contact data in the state
   //               // setContactData(response?.data);  // Update the state with API response
-  
+
   //               // After the API call succeeds, show the second alert
   //               Alert.alert(
   //                 "Contact Confirmed",
@@ -628,11 +638,11 @@ const QuizPage = ({ navigation, route }) => {
   //     { cancelable: false }
   //   );
   // };
-  
 
 
 
-  
+
+
 
   const handlePrevious = () => {
     if (currentQuestionIndex > 0) {
@@ -672,40 +682,48 @@ const QuizPage = ({ navigation, route }) => {
         {renderImage(questionData[currentQuestionIndex]?.question_image)}
         <Questions
           index={currentQuestionIndex}
-          question={questionData[currentQuestionIndex]?.question}
-          totalQuestions={questionData.length}
+          question={questionData[currentQuestionIndex] ? [questionData[currentQuestionIndex]] : []}
+          totalQuestions={item.topics.length}
+          topicName={item.topics[currentQuestionIndex].name}
+          item={item}
+          selectedIndex={indexSelected}
         />
       </>
     );
   };
 
   return (
-    <View style={styles.container}> 
+    <View style={styles.container}>
+      <LinearGradient colors={['#263755', '#1ABC9C']} style={styles.heading}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Image source={require('../../../../images/BackBtn.png')} style={styles.backBtn} />
+        </TouchableOpacity>
+        <Text style={styles.headingTxt}>  Questions</Text>
+      </LinearGradient>
       <ScrollView contentContainerStyle={styles.scrollView}>
-        <Text style={{ color: 'lightgreen', fontSize: 25 }}>{name}</Text>
-        <View style={styles.contactView}>
-       <TouchableOpacity onPress={handleContact}>
-        {/* <Text style={styles.btnNextText}>Contact</Text> */}
-     <Icon  name= "call" size={25}/>
+        {/* <Text style={{ color: 'lightgreen', fontSize: 25 }}>{name}</Text> */}
+        {/* <View style={styles.contactView}> */}
+        {/* <TouchableOpacity onPress={handleContact}> */}
+        {/* <Icon name="call" size={25} /> */}
 
-       </TouchableOpacity>
-       </View>
+        {/* </TouchableOpacity> */}
+        {/* </View> */}
 
         <View style={styles.subContainer}>
           {/* Render question content or no question available message */}
           {renderQuestionContent()}
         </View>
 
-      
+
       </ScrollView>
-    
+
 
       {/* Fixed at bottom */}
       <View style={styles.bottomButtonsContainer}>
 
-             
 
-      <TouchableOpacity
+
+        <TouchableOpacity
           style={styles.btnNext}
           onPress={handlePrevious}
           disabled={currentQuestionIndex === 0}
@@ -722,10 +740,10 @@ const QuizPage = ({ navigation, route }) => {
           </TouchableOpacity>
         ) : (
           <TouchableOpacity
-            // style={[styles.btnNext, { backgroundColor: 'lightgreen' }]}
-            // onPress={handleSubmit}
+            style={[styles.btnNext, { backgroundColor: 'lightgreen' }]}
+            onPress={handleSubmit}
           >
-            {/* <Text style={styles.btnNextText}>END</Text> */}
+            <Text style={styles.btnNextText}>END</Text>
           </TouchableOpacity>
         )}
       </View>
@@ -736,7 +754,6 @@ const QuizPage = ({ navigation, route }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#38588b",
   },
   scrollView: {
     flexGrow: 1,
@@ -744,12 +761,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   subContainer: {
-    marginTop: 50,
+    marginTop: 10,
     marginBottom: 16,
     padding: 20,
     paddingVertical: 10,
     borderRadius: 10,
-    backgroundColor: "white",
     shadowColor: "#171717",
     shadowOffset: { width: -6, height: 6 },
     shadowOpacity: 0.2,
@@ -789,16 +805,45 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 20,
   },
-  contactView:{
-  backgroundColor:'lightgreen',
-   width:horizontalScale(40),
-   height:verticalScale(35),
-   marginTop:25,
-  marginLeft:280,
-  justifyContent:'center',
-  alignItems:'center',
-  borderRadius:10
-  }
+  contactView: {
+    backgroundColor: 'lightgreen',
+    width: horizontalScale(40),
+    height: verticalScale(35),
+    marginTop: 25,
+    marginLeft: 280,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10
+  },
+  heading: {
+    width: horizontalScale(360),
+    height: verticalScale(50),
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: moderateScale(12),
+    backgroundColor: '#E9E9E9',
+    text: 'center',
+  },
+  // backBtn: {
+  //   width: horizontalScale(25),
+  //   height: verticalScale(20),
+  //   resizeMode: 'contain',
+  //   marginTop: moderateScale(10),
+  // },
+  backBtn: {
+    width: horizontalScale(25),
+    height: verticalScale(20),
+    resizeMode: 'contain',
+    tintColor: 'white',
+    alignSelf: 'center',
+  },
+
+  headingTxt: {
+    fontSize: 18,
+    fontWeight: '600',
+    alignSelf: 'center',
+    color: 'white',
+  },
 });
 
 export default QuizPage;
