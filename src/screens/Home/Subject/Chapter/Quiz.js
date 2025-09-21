@@ -686,7 +686,7 @@ const QuizPage = ({ navigation, route }) => {
           totalQuestions={item.topics.length}
           topicName={item.topics[currentQuestionIndex].name}
           item={item}
-          selectedIndex={indexSelected}
+          selectedIndex={currentQuestionIndex}
         />
       </>
     );
@@ -721,29 +721,28 @@ const QuizPage = ({ navigation, route }) => {
       {/* Fixed at bottom */}
       <View style={styles.bottomButtonsContainer}>
 
-
-
-        <TouchableOpacity
-          style={styles.btnNext}
-          onPress={handlePrevious}
-          disabled={currentQuestionIndex === 0}
-        >
-          <Text style={styles.btnNextText}>Previous</Text>
-        </TouchableOpacity>
+        {currentQuestionIndex > 0 && (
+          <TouchableOpacity
+            style={styles.btnArrow}
+            onPress={handlePrevious}
+          >
+            <Icon name="arrow-back" size={24} color="#333" />
+          </TouchableOpacity>
+        )}
 
         {currentQuestionIndex < questionData.length - 1 ? (
           <TouchableOpacity
-            style={styles.btnNext}
+            style={styles.btnArrow}
             onPress={handleNext}
           >
-            <Text style={styles.btnNextText}>NEXT</Text>
+            <Icon name="arrow-forward" size={24} color="#333" />
           </TouchableOpacity>
         ) : (
           <TouchableOpacity
-            style={[styles.btnNext, { backgroundColor: 'lightgreen' }]}
+            style={[styles.btnArrow, { backgroundColor: 'lightgreen' }]}
             onPress={handleSubmit}
           >
-            <Text style={styles.btnNextText}>END</Text>
+            <Icon name="check" size={24} color="#333" />
           </TouchableOpacity>
         )}
       </View>
@@ -777,6 +776,20 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     backgroundColor: "#ffffff",
     borderWidth: 1,
+  },
+  btnArrow: {
+    borderRadius: 50,
+    padding: 15,
+    backgroundColor: "#ffffff",
+    borderWidth: 1,
+    borderColor: "#E0E0E0",
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
   },
   btnNextText: {
     color: "#333",

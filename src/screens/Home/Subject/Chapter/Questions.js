@@ -34,14 +34,14 @@ const Questions = ({ index, question, totalQuestions, topicName, item, selectedI
       <View style={styles.divider} />
 
       {/* Questions List */}
-      {item.topics[selectedIndex].questions && item.topics[selectedIndex].questions.length > 0 ? (
-        item.topics[selectedIndex].questions.map((item, questionIndex) => (
-          <View key={item.id ? item.id.toString() : questionIndex.toString()} style={styles.questionBox}>
+      {item.topics[selectedIndex]?.questions && item.topics[selectedIndex].questions.length > 0 ? (
+        item.topics[selectedIndex].questions.map((questionItem, questionIndex) => (
+          <View key={questionItem.id ? questionItem.id.toString() : questionIndex.toString()} style={styles.questionBox}>
             <Text style={styles.questionNumber}>
               Q{questionIndex + 1}.
             </Text>
             <Text style={styles.questionText}>
-              {item.question}
+              {questionItem.question}
             </Text>
           </View>
         ))
