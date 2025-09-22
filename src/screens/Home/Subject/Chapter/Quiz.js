@@ -508,9 +508,7 @@ const QuizPage = ({ navigation, route }) => {
   const handleNext = () => {
     if (currentQuestionIndex < item.topics.length - 1) {
       // Update the current question index
-      console.log("sawvehwjheqwe123", currentQuestionIndex);
       const nextIndex = currentQuestionIndex + 1;
-      console.log("sawvehwjheqwe123", nextIndex);
       setCurrentQuestionIndex(nextIndex);
       setQuestionID(item.topics[nextIndex].questions[0]?.id);
       setQuestionName(item.topics[nextIndex].questions[0]?.question);

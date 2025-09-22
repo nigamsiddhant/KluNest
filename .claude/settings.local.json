@@ -35,7 +35,8 @@
       "Bash(pkill:*)",
       "Bash(brew list:*)",
       "Bash(true)",
-      "Bash(open:*)"
+      "Bash(open:*)",
+      "Bash(yarn cache:*)"
     ],
     "deny": []
   }
