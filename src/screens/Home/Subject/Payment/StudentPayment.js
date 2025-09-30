@@ -40,7 +40,7 @@ const StudentPayment = ({ navigation }) => {
       <TouchableOpacity style={styles.subscriptionCard} onPress={() => { handleNavigateToPlan('1') }}>
         <View style={styles.subscriptionContent}>
           <Text style={styles.priceText}>Content View</Text>
-          <Text style={styles.descriptionText}>Only content view - Enjoy syllabus - aligned learning materials where each topic is presented with text based explanation, visually engaging images, and related videos - designed to make concepts clearer and more interactive.  </Text>
+          <Text style={styles.descriptionText}>Only content view - Enjoy syllabus based content in the form of text, Images and summary videos.  </Text>
         </View>
       </TouchableOpacity>
 

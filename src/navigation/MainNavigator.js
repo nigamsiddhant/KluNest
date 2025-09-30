@@ -7,8 +7,6 @@ import Walkthrough from '../screens/Walkthrough';
 import LoginInitialScreen from '../screens/loginInitialScreen';
 import LoginV2 from '../screens/LoginV2';
 import SignupV2 from '../screens/SignupV2';
-import Login from '../screens/Login';
-import Signup from '../screens/Signup';
 import Home from '../screens/Home';
 import English from '../screens/Home/Subject/English';
 import SubCategoryV2 from '../screens/Home/Subject/subCategory';
@@ -41,6 +39,7 @@ import Terms from '../screens/Home/Terms';
 import Privacy from '../screens/Home/Privacy';
 import ContactUs from '../screens/Home/ContactUs';
 import Cancellation from '../screens/Home/Cancellation';
+import ChatScreen from '../screens/Home/ChatScreen';
 
 const Stack = createStackNavigator();
 
@@ -77,21 +76,8 @@ const MainNavigator = () => {
 
 
         <Stack.Screen
-          name="Login"
-          component={Login}
-          options={{ headerShown: false }}
-        />
-
-
-        <Stack.Screen
           name='ForgetPasswordStudent'
           component={ForgetPasswordStudent}
-          options={{ headerShown: false }}
-        />
-
-        <Stack.Screen
-          name="Signup"
-          component={Signup}
           options={{ headerShown: false }}
         />
 
@@ -233,6 +219,11 @@ const MainNavigator = () => {
         <Stack.Screen
           name="videoCalling"
           component={VideoCalling}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="ChatScreen"
+          component={ChatScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

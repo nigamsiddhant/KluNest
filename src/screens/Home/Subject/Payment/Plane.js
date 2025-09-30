@@ -79,11 +79,20 @@ const Plane = ({ navigation, route }) => {
     return (
       <View style={styles.subscriptionCard}>
         <View style={styles.subscriptionContent}>
-          <Text style={styles.priceText}>
-            {item.price ? `Rs. ${item.price}` : item.name}
-          </Text>
+          <View style={styles.priceContainer}>
+            {item.discounted_price ? (
+              <>
+                <Text style={styles.priceText}>Rs. {item.discounted_price}</Text>
+                {item.actual_price && (
+                  <Text style={styles.originalPriceText}>Rs. {item.actual_price}</Text>
+                )}
+              </>
+            ) : (
+              <Text style={styles.priceText}>{item.name}</Text>
+            )}
+          </View>
           <Text style={styles.descriptionText}>
-            {item.name ? `Get ${item.name} month access for content` : 'Short Description of this subscription'}
+            {item.name ? `Get ${item.name} access for content` : 'Short Description of this subscription'}
           </Text>
         </View>
         <TouchableOpacity style={styles.buyNowButton} onPress={() => { CreateOrder(item.id) }}>
@@ -325,11 +334,24 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 
+  priceContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: verticalScale(4),
+  },
+
   priceText: {
     fontSize: 14.37,
     fontWeight: '600',
     color: '#2C5AA0',
-    marginBottom: verticalScale(4),
+    marginRight: horizontalScale(8),
+  },
+
+  originalPriceText: {
+    fontSize: 12,
+    color: '#999',
+    textDecorationLine: 'line-through',
+    fontWeight: '400',
   },
 
   descriptionText: {

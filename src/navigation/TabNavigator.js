@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomePage from '../screens/Home/HomePage';
 import Classes from '../screens/Home/Classes';
 import Profile from '../screens/Home/Profile';
-import ChatScreen from '../screens/Home/ChatScreen';
+import JoinRoom from '../screens/Home/JoinRoom';
 import {
   horizontalScale,
   moderateScale,
@@ -127,7 +127,7 @@ const TabNavigator = () => {
       />
       <Tab.Screen
         name="Chat"
-        component={ChatScreen}
+        component={JoinRoom}
         options={{
           headerShown: false,
           tabBarIcon: ({ focused }) => (

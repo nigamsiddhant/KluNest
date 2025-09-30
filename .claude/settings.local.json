@@ -36,7 +36,12 @@
       "Bash(brew list:*)",
       "Bash(true)",
       "Bash(open:*)",
-      "Bash(yarn cache:*)"
+      "Bash(yarn cache:*)",
+      "Bash(npm install:*)",
+      "Bash(mkdir:*)",
+      "Bash(watchman:*)",
+      "Bash(../gradlew assembleDebug:*)",
+      "Bash(npx metro:*)"
     ],
     "deny": []
   }
