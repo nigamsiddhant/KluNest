@@ -3,6 +3,7 @@ const http = require('http');
 const socketIo = require('socket.io');
 const fs = require('fs');
 const path = require('path');
+const multer = require('multer');
 
 const app = express();
 const server = http.createServer(app);
@@ -15,12 +16,48 @@ const io = socketIo(server, {
 
 const PORT = process.env.PORT || 3009;
 const CHAT_HISTORIES_DIR = path.join(__dirname, 'chat_histories');
+const UPLOADS_DIR = path.join(__dirname, 'uploads');
+
+// Configure multer for file uploads
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    let uploadPath = UPLOADS_DIR;
+    if (file.mimetype.startsWith('image/')) {
+      uploadPath = path.join(UPLOADS_DIR, 'images');
+    } else if (file.mimetype.startsWith('video/')) {
+      uploadPath = path.join(UPLOADS_DIR, 'videos');
+    }
+    cb(null, uploadPath);
+  },
+  filename: function (req, file, cb) {
+    // Generate unique filename with timestamp
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    const ext = path.extname(file.originalname);
+    cb(null, file.fieldname + '-' + uniqueSuffix + ext);
+  }
+});
+
+const upload = multer({
+  storage: storage,
+  limits: {
+    fileSize: 50 * 1024 * 1024 // 50MB limit
+  },
+  fileFilter: function (req, file, cb) {
+    // Allow only images and videos
+    if (file.mimetype.startsWith('image/') || file.mimetype.startsWith('video/')) {
+      cb(null, true);
+    } else {
+      cb(new Error('Only images and videos are allowed!'), false);
+    }
+  }
+});
 
 // Store room-specific chat histories in memory
 const roomHistories = new Map();
 
 // Serve static files
 app.use(express.static('public'));
+app.use('/uploads', express.static('uploads'));
 
 // Initialize chat histories directory if it doesn't exist
 function initializeChatHistoriesDir() {
@@ -59,7 +96,7 @@ function loadRoomHistoryFromFile(roomName) {
   } catch (error) {
     console.error(`Error loading room history for ${roomName}:`, error);
   }
-  
+
   // Return empty history if file doesn't exist or error occurred
   return {
     messages: [],
@@ -72,7 +109,7 @@ function loadRoomHistory(roomName) {
   if (roomHistories.has(roomName)) {
     return roomHistories.get(roomName);
   }
-  
+
   // Load from file and store in memory
   const roomHistory = loadRoomHistoryFromFile(roomName);
   roomHistories.set(roomName, roomHistory);
@@ -106,17 +143,17 @@ function saveRoomHistory(roomName, roomHistory) {
 function addMessageToRoomHistory(roomName, message) {
   initializeRoomHistory(roomName);
   const roomHistory = roomHistories.get(roomName);
-  
+
   roomHistory.messages.push({
     ...message,
     timestamp: new Date().toISOString()
   });
-  
+
   // Keep only last 1000 messages per room to prevent file from getting too large
   if (roomHistory.messages.length > 1000) {
     roomHistory.messages = roomHistory.messages.slice(-1000);
   }
-  
+
   roomHistory.lastUpdated = new Date().toISOString();
   roomHistories.set(roomName, roomHistory);
   saveRoomHistory(roomName, roomHistory);
@@ -125,15 +162,30 @@ function addMessageToRoomHistory(roomName, message) {
 // Initialize chat histories directory
 initializeChatHistoriesDir();
 
+// Initialize uploads directory if it doesn't exist
+function initializeUploadsDir() {
+  if (!fs.existsSync(UPLOADS_DIR)) {
+    fs.mkdirSync(UPLOADS_DIR, { recursive: true });
+    fs.mkdirSync(path.join(UPLOADS_DIR, 'images'), { recursive: true });
+    fs.mkdirSync(path.join(UPLOADS_DIR, 'videos'), { recursive: true });
+    console.log('Created uploads directory:', UPLOADS_DIR);
+  }
+}
+
+// Initialize uploads directory
+initializeUploadsDir();
+
 // Socket.IO connection handling
 io.on('connection', (socket) => {
   console.log('A user connected:', socket.id);
-  
+
   // Handle user joining a room
   socket.on('user_join_room', (userData) => {
+    console.log('User joining room:', userData);
     const { username, userType, grade, subject, user_id } = userData;
     const roomName = getRoomName(grade, subject);
-    
+    console.log('Room name:', roomName);
+
     // Store user data in socket
     socket.username = username;
     socket.userType = userType;
@@ -143,12 +195,12 @@ io.on('connection', (socket) => {
     socket.user_id = user_id;
     // Join the room
     socket.join(roomName);
-    
+
     // Load and send room history
     const roomHistory = loadRoomHistory(roomName);
     console.log(`Loading history for room ${roomName}:`, roomHistory.messages.length, 'messages');
     socket.emit('chat_history', roomHistory.messages);
-    
+
     // Notify room about new user
     const joinMessage = {
       type: 'system',
@@ -157,20 +209,23 @@ io.on('connection', (socket) => {
       user_id: -1,
       timestamp: new Date().toISOString()
     };
-    
+
     socket.to(roomName).emit('message', joinMessage);
     addMessageToRoomHistory(roomName, joinMessage);
-    
+
     console.log(`${username} joined room: ${roomName}`);
   });
-  
+
   // Handle chat messages
   socket.on('chat_message', (messageData) => {
+    console.log('Received chat_message:', messageData);
+    console.log('Socket roomName:', socket.roomName, 'username:', socket.username);
+
     if (!socket.roomName || !socket.username) {
       console.log('User not properly joined to room or username missing');
       return; // User not in a room or username not set
     }
-    
+
     const message = {
       type: 'user',
       content: messageData.content,
@@ -179,28 +234,33 @@ io.on('connection', (socket) => {
       user_id: socket.user_id,
       timestamp: new Date().toISOString()
     };
-    
+
+    // Add file attachment if present
+    if (messageData.file) {
+      message.file = messageData.file;
+    }
+
     console.log(`Message from ${socket.username} in room ${socket.roomName}: ${messageData.content}`);
-    
+
     // Broadcast message to room members only
     io.to(socket.roomName).emit('message', message);
-    
+
     // Save message to room history
     addMessageToRoomHistory(socket.roomName, message);
   });
-  
+
   // Handle user typing
   socket.on('typing', (isTyping) => {
     if (!socket.roomName || !socket.username) {
       return; // User not in a room or username not set
     }
-    
+
     socket.to(socket.roomName).emit('user_typing', {
       username: socket.username,
       isTyping: isTyping
     });
   });
-  
+
   // Handle disconnection
   socket.on('disconnect', () => {
     console.log('User disconnected:', socket.id);
@@ -212,7 +272,7 @@ io.on('connection', (socket) => {
         user_id: -1,
         timestamp: new Date().toISOString()
       };
-      
+
       socket.to(socket.roomName).emit('message', leaveMessage);
       addMessageToRoomHistory(socket.roomName, leaveMessage);
     }
@@ -254,6 +314,30 @@ app.delete('/api/history/:roomName', (req, res) => {
   } catch (error) {
     console.error(`Error clearing chat history for ${roomName}:`, error);
     res.status(500).json({ success: false, message: 'Error clearing chat history' });
+  }
+});
+
+// API endpoint to upload files
+app.post('/api/upload', upload.single('file'), (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ success: false, message: 'No file uploaded' });
+    }
+
+    const fileInfo = {
+      filename: req.file.filename,
+      originalName: req.file.originalname,
+      mimetype: req.file.mimetype,
+      size: req.file.size,
+      path: req.file.path,
+      url: `/uploads/${req.file.mimetype.startsWith('image/') ? 'images' : 'videos'}/${req.file.filename}`
+    };
+
+    console.log('File uploaded:', fileInfo);
+    res.json({ success: true, file: fileInfo });
+  } catch (error) {
+    console.error('Error uploading file:', error);
+    res.status(500).json({ success: false, message: 'Error uploading file' });
   }
 });
 

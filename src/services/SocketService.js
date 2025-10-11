@@ -59,7 +59,7 @@ class SocketService {
     this.socket.emit('user_join_room', userData);
   }
 
-  sendMessage(message) {
+  sendMessage(message, file = null) {
     if (!this.socket || !this.isConnected) {
       console.error('Socket not connected');
       return;
@@ -71,7 +71,11 @@ class SocketService {
     }
 
     console.log('Sending message:', message);
-    this.socket.emit('chat_message', { content: message });
+    const messageData = { content: message };
+    if (file) {
+      messageData.file = file;
+    }
+    this.socket.emit('chat_message', messageData);
   }
 
   sendTyping(isTyping) {
@@ -149,6 +153,35 @@ class SocketService {
 
   getUserInfo() {
     return this.userInfo;
+  }
+
+  async uploadFile(fileData) {
+    try {
+      const formData = new FormData();
+      formData.append('file', {
+        uri: fileData.uri,
+        type: fileData.type,
+        name: fileData.name,
+      });
+
+      const response = await fetch('http://103.87.173.134:3009/api/upload', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        return result.file;
+      } else {
+        throw new Error(result.message || 'Upload failed');
+      }
+    } catch (error) {
+      console.error('Error uploading file:', error);
+      throw error;
+    }
   }
 }
 

@@ -1,7 +1,10 @@
-import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import React, { useState } from "react";
+import { View, StyleSheet, Text, Image, TouchableOpacity } from "react-native";
+import Video from "react-native-video";
 
 const Questions = ({ index, question, totalQuestions, topicName, item, selectedIndex }) => {
+  const [playingVideoId, setPlayingVideoId] = useState(null);
+
   console.log("siddhant question logs::", item);
   return (
     <View style={{}}>
@@ -35,16 +38,52 @@ const Questions = ({ index, question, totalQuestions, topicName, item, selectedI
 
       {/* Questions List */}
       {item.topics[selectedIndex]?.questions && item.topics[selectedIndex].questions.length > 0 ? (
-        item.topics[selectedIndex].questions.map((questionItem, questionIndex) => (
-          <View key={questionItem.id ? questionItem.id.toString() : questionIndex.toString()} style={styles.questionBox}>
-            <Text style={styles.questionNumber}>
-              Q{questionIndex + 1}.
-            </Text>
-            <Text style={styles.questionText}>
-              {questionItem.question}
-            </Text>
-          </View>
-        ))
+        item.topics[selectedIndex].questions.map((questionItem, questionIndex) => {
+          const isImageUrl = questionItem.content_url && /\.(jpg|jpeg|png|gif|webp|bmp|svg)$/i.test(questionItem.content_url);
+          const isVideoUrl = questionItem.content_url && /\.(mp4|mov|avi|mkv|webm|m4v)$/i.test(questionItem.content_url);
+          const videoId = questionItem.id ? questionItem.id.toString() : questionIndex.toString();
+          const isPlaying = playingVideoId === videoId;
+
+          return (
+            <View key={videoId} style={styles.questionBox}>
+              <Text style={styles.questionNumber}>
+                Q{questionIndex + 1}.
+              </Text>
+              <Text style={styles.questionText}>
+                {questionItem.question}
+              </Text>
+              {isImageUrl && (
+                <Image
+                  source={{ uri: questionItem.content_url }}
+                  style={styles.questionImage}
+                  resizeMode="contain"
+                />
+              )}
+              {isVideoUrl && (
+                <View style={styles.videoContainer}>
+                  <Video
+                    source={{ uri: questionItem.content_url }}
+                    style={styles.video}
+                    controls={true}
+                    paused={!isPlaying}
+                    resizeMode="contain"
+                    onEnd={() => setPlayingVideoId(null)}
+                  />
+                  {!isPlaying && (
+                    <TouchableOpacity
+                      style={styles.playButton}
+                      onPress={() => setPlayingVideoId(videoId)}
+                    >
+                      <View style={styles.playIconContainer}>
+                        <Text style={styles.playIcon}>▶</Text>
+                      </View>
+                    </TouchableOpacity>
+                  )}
+                </View>
+              )}
+            </View>
+          );
+        })
       ) : (
         <View style={styles.noQuestionsBox}>
           <Text style={styles.noQuestionsText}>No questions available</Text>
@@ -84,6 +123,48 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 24,
     textAlign: 'justify',
+  },
+  questionImage: {
+    width: '100%',
+    height: 200,
+    marginTop: 10,
+    borderRadius: 8,
+  },
+  videoContainer: {
+    width: '100%',
+    height: 200,
+    marginTop: 10,
+    borderRadius: 8,
+    backgroundColor: '#000',
+    overflow: 'hidden',
+    position: 'relative',
+  },
+  video: {
+    width: '100%',
+    height: '100%',
+  },
+  playButton: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+  },
+  playIconContainer: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  playIcon: {
+    fontSize: 24,
+    color: '#1ABC9C',
+    marginLeft: 4,
   },
   noQuestionsBox: {
     backgroundColor: '#FFF3CD',

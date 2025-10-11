@@ -10,9 +10,15 @@ import {
   Platform,
   Image,
   Alert,
+  ActivityIndicator,
+  Modal,
+  Dimensions,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import ImagePicker from 'react-native-image-crop-picker';
+import DocumentPicker from 'react-native-document-picker';
+import Video from 'react-native-video';
 import {
   horizontalScale,
   moderateScale,
@@ -20,6 +26,8 @@ import {
 } from '../../components/responsive';
 import socketService from '../../services/SocketService';
 import { useNavigation, useRoute } from '@react-navigation/native';
+
+const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
 const ChatScreen = () => {
   const navigation = useNavigation();
@@ -31,6 +39,10 @@ const ChatScreen = () => {
   const [isConnected, setIsConnected] = useState(false);
   const [typingUsers, setTypingUsers] = useState([]);
   const [isJoiningRoom, setIsJoiningRoom] = useState(false);
+  const [attachedFile, setAttachedFile] = useState(null);
+  const [isUploading, setIsUploading] = useState(false);
+  const [showAttachmentOptions, setShowAttachmentOptions] = useState(false);
+  const [selectedMedia, setSelectedMedia] = useState(null);
   const flatListRef = useRef(null);
   const typingTimeoutRef = useRef(null);
 
@@ -73,7 +85,8 @@ const ChatScreen = () => {
         username: message.username,
         userType: message.userType,
         timestamp: new Date(message.timestamp).toLocaleTimeString(),
-        type: message.type
+        type: message.type,
+        file: message.file
       };
       setMessages(prev => [...prev, formattedMessage]);
     });
@@ -86,7 +99,8 @@ const ChatScreen = () => {
         username: message.username,
         userType: message.userType,
         timestamp: new Date(message.timestamp).toLocaleTimeString(),
-        type: message.type
+        type: message.type,
+        file: message.file
       }));
       setMessages(formattedHistory);
     });
@@ -120,16 +134,115 @@ const ChatScreen = () => {
     }
   };
 
-  const sendMessage = () => {
-    if (inputText.trim() && isConnected) {
-      socketService.sendMessage(inputText.trim());
+  const handleImagePicker = async () => {
+    try {
+      const image = await ImagePicker.openPicker({
+        mediaType: 'photo',
+        cropping: false,
+      });
+
+      const fileData = {
+        uri: image.path,
+        type: image.mime,
+        name: image.filename || `image_${Date.now()}.jpg`,
+      };
+
+      setAttachedFile(fileData);
+      setShowAttachmentOptions(false);
+    } catch (error) {
+      if (error.code !== 'E_PICKER_CANCELLED') {
+        console.error('Image picker error:', error);
+        Alert.alert('Error', 'Failed to pick image');
+      }
+    }
+  };
+
+  const handleVideoPicker = async () => {
+    try {
+      const video = await ImagePicker.openPicker({
+        mediaType: 'video',
+      });
+
+      const fileData = {
+        uri: video.path,
+        type: video.mime,
+        name: video.filename || `video_${Date.now()}.mp4`,
+      };
+
+      setAttachedFile(fileData);
+      setShowAttachmentOptions(false);
+    } catch (error) {
+      if (error.code !== 'E_PICKER_CANCELLED') {
+        console.error('Video picker error:', error);
+        Alert.alert('Error', 'Failed to pick video');
+      }
+    }
+  };
+
+  const handleDocumentPicker = async () => {
+    try {
+      const result = await DocumentPicker.pick({
+        type: [DocumentPicker.types.allFiles],
+      });
+
+      const fileData = {
+        uri: result[0].uri,
+        type: result[0].type,
+        name: result[0].name,
+      };
+
+      setAttachedFile(fileData);
+      setShowAttachmentOptions(false);
+    } catch (error) {
+      if (!DocumentPicker.isCancel(error)) {
+        console.error('Document picker error:', error);
+        Alert.alert('Error', 'Failed to pick document');
+      }
+    }
+  };
+
+  const removeAttachment = () => {
+    setAttachedFile(null);
+  };
+
+  const sendMessage = async () => {
+    if ((!inputText.trim() && !attachedFile) || !isConnected) {
+      return;
+    }
+
+    try {
+      let fileInfo = null;
+
+      // Upload file if attached
+      if (attachedFile) {
+        setIsUploading(true);
+        try {
+          fileInfo = await socketService.uploadFile(attachedFile);
+          console.log('File uploaded successfully:', fileInfo);
+        } catch (error) {
+          Alert.alert('Upload Failed', 'Failed to upload file. Please try again.');
+          setIsUploading(false);
+          return;
+        }
+        setIsUploading(false);
+      }
+
+      // Send message with or without file
+      const messageText = inputText.trim() || (fileInfo ? '' : '');
+      socketService.sendMessage(messageText, fileInfo);
+
       setInputText('');
+      setAttachedFile(null);
 
       // Stop typing indicator
       socketService.sendTyping(false);
       if (typingTimeoutRef.current) {
         clearTimeout(typingTimeoutRef.current);
       }
+    } catch (error) {
+      console.error('Error sending message:', error);
+      Alert.alert('Error', 'Failed to send message');
+      setIsUploading(false);
     }
   };
 
@@ -147,6 +260,53 @@ const ChatScreen = () => {
         socketService.sendTyping(false);
       }, 1000);
     }
+  };
+
+  const renderFileAttachment = (file, isUser) => {
+    if (!file) return null;
+
+    const serverUrl = 'http://103.87.173.134:3009';
+    const fileUrl = file.url ? `${serverUrl}${file.url}` : file.path;
+
+    // Check if it's an image
+    if (file.mimetype?.startsWith('image/')) {
+      return (
+        <TouchableOpacity
+          onPress={() => setSelectedMedia({ type: 'image', uri: fileUrl })}>
+          <Image
+            source={{ uri: fileUrl }}
+            style={styles.messageImage}
+            resizeMode="cover"
+          />
+        </TouchableOpacity>
+      );
+    }
+
+    // Check if it's a video
+    if (file.mimetype?.startsWith('video/')) {
+      return (
+        <TouchableOpacity
+          style={styles.videoContainer}
+          onPress={() => setSelectedMedia({ type: 'video', uri: fileUrl })}>
+          <View style={styles.videoPlaceholder}>
+            <Icon name="play-circle-outline" size={moderateScale(50)} color={isUser ? '#fff' : '#1ABC9C'} />
+            <Text style={[styles.videoText, isUser ? styles.userMessageText : styles.otherMessageText]}>
+              Play Video
+            </Text>
+          </View>
+        </TouchableOpacity>
+      );
+    }
+
+    // Other files (documents, etc.)
+    return (
+      <View style={styles.fileAttachment}>
+        <Icon name="insert-drive-file" size={moderateScale(24)} color={isUser ? '#fff' : '#1ABC9C'} />
+        <Text style={[styles.fileName, isUser ? styles.userMessageText : styles.otherMessageText]} numberOfLines={1}>
+          {file.originalName || file.filename || 'File'}
+        </Text>
+      </View>
+    );
   };
 
   const renderMessage = ({ item }) => {
@@ -178,9 +338,12 @@ const ChatScreen = () => {
             )}
           </View>
         )}
-        <Text style={[styles.messageText, item.isUser ? styles.userMessageText : styles.otherMessageText]}>
-          {item.text}
-        </Text>
+        {item.file && renderFileAttachment(item.file, item.isUser)}
+        {item.text && (
+          <Text style={[styles.messageText, item.isUser ? styles.userMessageText : styles.otherMessageText]}>
+            {item.text}
+          </Text>
+        )}
         <Text style={styles.timestamp}>{item.timestamp}</Text>
       </View>
     );
@@ -228,7 +391,28 @@ const ChatScreen = () => {
         </View>
       )}
 
+      {attachedFile && (
+        <View style={styles.attachmentPreviewContainer}>
+          <View style={styles.attachmentPreview}>
+            <Icon name="attach-file" size={moderateScale(20)} color="#1ABC9C" />
+            <Text style={styles.attachmentName} numberOfLines={1}>
+              {attachedFile.name}
+            </Text>
+            <TouchableOpacity onPress={removeAttachment} style={styles.removeAttachment}>
+              <Icon name="close" size={moderateScale(20)} color="#F44336" />
+            </TouchableOpacity>
+          </View>
+        </View>
+      )}
+
       <View style={styles.inputContainer}>
+        <TouchableOpacity
+          style={styles.attachButton}
+          onPress={() => setShowAttachmentOptions(true)}
+          disabled={!isConnected || isUploading}>
+          <Icon name="add-circle-outline" size={moderateScale(28)} color={isConnected ? '#1ABC9C' : '#999'} />
+        </TouchableOpacity>
+
         <TextInput
           style={styles.textInput}
           value={inputText}
@@ -236,19 +420,85 @@ const ChatScreen = () => {
           placeholder="Type your message..."
           placeholderTextColor="#999"
           multiline
-          editable={isConnected}
+          editable={isConnected && !isUploading}
         />
+
         <TouchableOpacity
-          style={[styles.sendButton, (!inputText.trim() || !isConnected) && styles.sendButtonDisabled]}
+          style={[styles.sendButton, ((!inputText.trim() && !attachedFile) || !isConnected || isUploading) && styles.sendButtonDisabled]}
           onPress={sendMessage}
-          disabled={!inputText.trim() || !isConnected}>
-          <Icon
-            name="send"
-            size={moderateScale(20)}
-            color={(inputText.trim() && isConnected) ? '#1ABC9C' : '#999'}
-          />
+          disabled={(!inputText.trim() && !attachedFile) || !isConnected || isUploading}>
+          {isUploading ? (
+            <ActivityIndicator size="small" color="#1ABC9C" />
+          ) : (
+            <Icon
+              name="send"
+              size={moderateScale(20)}
+              color={((inputText.trim() || attachedFile) && isConnected) ? '#1ABC9C' : '#999'}
+            />
+          )}
         </TouchableOpacity>
       </View>
+
+      {/* Attachment Options Modal */}
+      <Modal
+        visible={showAttachmentOptions}
+        transparent
+        animationType="fade"
+        onRequestClose={() => setShowAttachmentOptions(false)}>
+        <TouchableOpacity
+          style={styles.modalOverlay}
+          activeOpacity={1}
+          onPress={() => setShowAttachmentOptions(false)}>
+          <View style={styles.attachmentOptionsContainer}>
+            <TouchableOpacity style={styles.attachmentOption} onPress={handleImagePicker}>
+              <Icon name="image" size={moderateScale(30)} color="#1ABC9C" />
+              <Text style={styles.attachmentOptionText}>Image</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.attachmentOption} onPress={handleVideoPicker}>
+              <Icon name="videocam" size={moderateScale(30)} color="#1ABC9C" />
+              <Text style={styles.attachmentOptionText}>Video</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.attachmentOption} onPress={handleDocumentPicker}>
+              <Icon name="insert-drive-file" size={moderateScale(30)} color="#1ABC9C" />
+              <Text style={styles.attachmentOptionText}>Document</Text>
+            </TouchableOpacity>
+          </View>
+        </TouchableOpacity>
+      </Modal>
+
+      {/* Media Viewer Modal */}
+      <Modal
+        visible={selectedMedia !== null}
+        transparent
+        animationType="fade"
+        onRequestClose={() => setSelectedMedia(null)}>
+        <View style={styles.mediaViewerContainer}>
+          <TouchableOpacity
+            style={styles.closeMediaButton}
+            onPress={() => setSelectedMedia(null)}>
+            <Icon name="close" size={moderateScale(30)} color="white" />
+          </TouchableOpacity>
+
+          {selectedMedia?.type === 'image' && (
+            <Image
+              source={{ uri: selectedMedia.uri }}
+              style={styles.fullScreenImage}
+              resizeMode="contain"
+            />
+          )}
+
+          {selectedMedia?.type === 'video' && (
+            <Video
+              source={{ uri: selectedMedia.uri }}
+              style={styles.fullScreenVideo}
+              controls
+              resizeMode="contain"
+            />
+          )}
+        </View>
+      </Modal>
     </KeyboardAvoidingView>
   );
 };
@@ -405,6 +655,13 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: '#e0e0e0',
   },
+  attachButton: {
+    width: moderateScale(40),
+    height: moderateScale(40),
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: horizontalScale(5),
+  },
   textInput: {
     flex: 1,
     borderWidth: 1,
@@ -426,6 +683,114 @@ const styles = StyleSheet.create({
   },
   sendButtonDisabled: {
     backgroundColor: 'rgba(153, 153, 153, 0.1)',
+  },
+  // Attachment preview styles
+  attachmentPreviewContainer: {
+    paddingHorizontal: horizontalScale(15),
+    paddingVertical: verticalScale(8),
+    backgroundColor: 'white',
+    borderTopWidth: 1,
+    borderTopColor: '#e0e0e0',
+  },
+  attachmentPreview: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#f0f0f0',
+    padding: moderateScale(10),
+    borderRadius: moderateScale(8),
+  },
+  attachmentName: {
+    flex: 1,
+    marginLeft: horizontalScale(8),
+    fontSize: moderateScale(13),
+    color: '#333',
+  },
+  removeAttachment: {
+    padding: moderateScale(4),
+  },
+  // Message media styles
+  messageImage: {
+    width: moderateScale(200),
+    height: moderateScale(200),
+    borderRadius: moderateScale(8),
+    marginBottom: verticalScale(5),
+  },
+  videoContainer: {
+    marginBottom: verticalScale(5),
+  },
+  videoPlaceholder: {
+    width: moderateScale(200),
+    height: moderateScale(150),
+    borderRadius: moderateScale(8),
+    backgroundColor: 'rgba(0,0,0,0.1)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  videoText: {
+    marginTop: verticalScale(5),
+    fontSize: moderateScale(12),
+  },
+  fileAttachment: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: moderateScale(8),
+    backgroundColor: 'rgba(0,0,0,0.05)',
+    borderRadius: moderateScale(8),
+    marginBottom: verticalScale(5),
+  },
+  fileName: {
+    marginLeft: horizontalScale(8),
+    fontSize: moderateScale(13),
+    flex: 1,
+  },
+  // Modal styles
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  attachmentOptionsContainer: {
+    backgroundColor: 'white',
+    borderRadius: moderateScale(15),
+    padding: moderateScale(20),
+    width: horizontalScale(280),
+    alignItems: 'center',
+  },
+  attachmentOption: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '100%',
+    padding: moderateScale(15),
+    borderBottomWidth: 1,
+    borderBottomColor: '#f0f0f0',
+  },
+  attachmentOptionText: {
+    marginLeft: horizontalScale(15),
+    fontSize: moderateScale(16),
+    color: '#333',
+    fontWeight: '500',
+  },
+  mediaViewerContainer: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.95)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  closeMediaButton: {
+    position: 'absolute',
+    top: verticalScale(50),
+    right: horizontalScale(20),
+    zIndex: 1,
+    padding: moderateScale(10),
+  },
+  fullScreenImage: {
+    width: SCREEN_WIDTH,
+    height: '100%',
+  },
+  fullScreenVideo: {
+    width: SCREEN_WIDTH,
+    height: verticalScale(300),
   },
 });
 
