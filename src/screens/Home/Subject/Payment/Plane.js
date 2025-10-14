@@ -136,7 +136,7 @@ const Plane = ({ navigation, route }) => {
       description: 'Subscription Plan',
       // image: 'https://i.imgur.com/3g7nmJC.jpg',
       currency: 'INR',
-      key: 'rzp_test_gaGS0WZaFvmvQh',
+      key: 'rzp_live_RR1YXd2icABKcI',
       // key: 'rzp_test_x8wm1rwROYLo4t',
 
       amount: amount,
@@ -149,7 +149,7 @@ const Plane = ({ navigation, route }) => {
       // },
       theme: { color: '#53a20e' }
     };
-
+    console.log("check data........", options)
     RazorpayCheckout.open(options)
       .then((data) => {
         // handle succes
