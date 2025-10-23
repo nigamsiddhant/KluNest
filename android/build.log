@@ -1,0 +1,1315 @@
+Starting a Gradle Daemon, 1 busy and 10 stopped Daemons could not be reused, use --status for details
+> Task :gradle-plugin:react-native-gradle-plugin:checkKotlinGradlePluginConfigurationErrors
+> Task :gradle-plugin:react-native-gradle-plugin:compileKotlin UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:compileJava NO-SOURCE
+> Task :gradle-plugin:react-native-gradle-plugin:pluginDescriptors UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:processResources UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:classes UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:jar UP-TO-DATE
+
+> Configure project :react-native-video
+Kotlin version is correct: 1.9.22
+AndroidX version is correct: 1.9.3
+useExoplayerIMA: false
+useExoplayerSmoothStreaming: true
+useExoplayerDash: true
+useExoplayerHls: true
+useExoplayerRtsp: false
+buildFromSource: false
+
+> Configure project :react-native-vision-camera
+[VisionCamera] Thank you for using VisionCamera ❤️
+[VisionCamera] If you enjoy using VisionCamera, please consider sponsoring this project: https://github.com/sponsors/mrousavy
+[VisionCamera] node_modules found at /Users/siddhantnigam/Downloads/klu-nest/node_modules
+[VisionCamera] VisionCamera_enableFrameProcessors is set to true!
+[VisionCamera] react-native-worklets-core not found, Frame Processors are disabled!
+[VisionCamera] VisionCamera_enableCodeScanner is set to false!
+WARNING: We recommend using a newer Android Gradle plugin to use compileSdk = 35
+
+This Android Gradle plugin (8.2.1) was tested up to compileSdk = 34.
+
+You are strongly encouraged to update your project to use a newer
+Android Gradle plugin that has been tested with compileSdk = 35.
+
+If you are already using the latest version of the Android Gradle plugin,
+you may need to wait until a newer version with support for compileSdk = 35 is available.
+
+To suppress this warning, add/update
+    android.suppressUnsupportedCompileSdk=35
+to this project's gradle.properties.
+WARNING: We recommend using a newer Android Gradle plugin to use compileSdk = 35
+
+This Android Gradle plugin (8.2.1) was tested up to compileSdk = 34.
+
+You are strongly encouraged to update your project to use a newer
+Android Gradle plugin that has been tested with compileSdk = 35.
+
+If you are already using the latest version of the Android Gradle plugin,
+you may need to wait until a newer version with support for compileSdk = 35 is available.
+
+To suppress this warning, add/update
+    android.suppressUnsupportedCompileSdk=35
+to this project's gradle.properties.
+WARNING: [Processor] Library '/Users/siddhantnigam/.gradle/caches/modules-2/files-2.1/androidx.media3/media3-ui/1.4.1/95308f5a6ed8f6c11afbfc321a724f0e2b81560e/media3-ui-1.4.1.aar' contains references to both AndroidX and old support library. This seems like the library is partially migrated. Jetifier will try to rewrite the library anyway.
+ Example of androidX reference: 'androidx/media3/ui/PlayerNotificationManager'
+ Example of support library reference: 'android/support/v4/media/session/MediaSessionCompat$Token'
+WARNING: [Processor] Library '/Users/siddhantnigam/.gradle/caches/modules-2/files-2.1/androidx.media3/media3-session/1.4.1/349ecc8b32e78399348799464d598d10024bb296/media3-session-1.4.1.aar' contains references to both AndroidX and old support library. This seems like the library is partially migrated. Jetifier will try to rewrite the library anyway.
+ Example of androidX reference: 'androidx/media3/session/MediaSession'
+ Example of support library reference: 'android/support/v4/media/session/MediaSessionCompat$Token'
+
+> Task :app:buildKotlinToolingMetadata
+> Task :app:checkKotlinGradlePluginConfigurationErrors
+> Task :app:generateCodegenSchemaFromJavaScript SKIPPED
+> Task :app:generateCodegenArtifactsFromSchema SKIPPED
+> Task :app:generatePackageList
+> Task :app:preBuild
+> Task :app:preReleaseBuild
+> Task :app:generateReleaseBuildConfig
+> Task :react-native-agora:preBuild UP-TO-DATE
+> Task :react-native-agora:preReleaseBuild UP-TO-DATE
+> Task :react-native-async-storage_async-storage:preBuild UP-TO-DATE
+> Task :react-native-async-storage_async-storage:preReleaseBuild UP-TO-DATE
+> Task :react-native-document-picker:preBuild UP-TO-DATE
+> Task :react-native-document-picker:preReleaseBuild UP-TO-DATE
+> Task :react-native-agora:writeReleaseAarMetadata
+> Task :react-native-async-storage_async-storage:writeReleaseAarMetadata
+> Task :react-native-document-picker:writeReleaseAarMetadata
+> Task :react-native-gesture-handler:preBuild UP-TO-DATE
+> Task :react-native-gesture-handler:preReleaseBuild UP-TO-DATE
+> Task :react-native-image-crop-picker:preBuild UP-TO-DATE
+> Task :react-native-image-crop-picker:preReleaseBuild UP-TO-DATE
+> Task :react-native-gesture-handler:writeReleaseAarMetadata
+> Task :react-native-linear-gradient:preBuild UP-TO-DATE
+> Task :react-native-image-crop-picker:writeReleaseAarMetadata
+> Task :react-native-linear-gradient:preReleaseBuild UP-TO-DATE
+> Task :react-native-permissions:preBuild UP-TO-DATE
+> Task :react-native-permissions:preReleaseBuild UP-TO-DATE
+> Task :react-native-linear-gradient:writeReleaseAarMetadata
+> Task :react-native-picker_picker:preBuild UP-TO-DATE
+> Task :react-native-picker_picker:preReleaseBuild UP-TO-DATE
+> Task :react-native-permissions:writeReleaseAarMetadata
+> Task :react-native-razorpay:preBuild UP-TO-DATE
+> Task :react-native-razorpay:preReleaseBuild UP-TO-DATE
+> Task :react-native-picker_picker:writeReleaseAarMetadata
+> Task :react-native-safe-area-context:preBuild UP-TO-DATE
+> Task :react-native-safe-area-context:preReleaseBuild UP-TO-DATE
+> Task :react-native-razorpay:writeReleaseAarMetadata
+> Task :react-native-screens:preBuild UP-TO-DATE
+> Task :react-native-screens:preReleaseBuild UP-TO-DATE
+> Task :react-native-safe-area-context:writeReleaseAarMetadata
+> Task :react-native-sound-player:preBuild UP-TO-DATE
+> Task :react-native-sound-player:preReleaseBuild UP-TO-DATE
+> Task :react-native-screens:writeReleaseAarMetadata
+> Task :react-native-svg:preBuild UP-TO-DATE
+> Task :react-native-svg:preReleaseBuild UP-TO-DATE
+> Task :react-native-sound-player:writeReleaseAarMetadata
+> Task :react-native-svg:writeReleaseAarMetadata
+> Task :react-native-vector-icons:preBuild UP-TO-DATE
+> Task :react-native-vector-icons:preReleaseBuild UP-TO-DATE
+> Task :react-native-video:preBuild UP-TO-DATE
+> Task :react-native-video:preReleaseBuild UP-TO-DATE
+> Task :react-native-vector-icons:writeReleaseAarMetadata
+> Task :react-native-video:writeReleaseAarMetadata
+> Task :react-native-vision-camera:prepareHeaders
+> Task :react-native-vision-camera:preBuild
+> Task :react-native-vision-camera:preReleaseBuild
+> Task :sayem314_react-native-keep-awake:preBuild UP-TO-DATE
+> Task :sayem314_react-native-keep-awake:preReleaseBuild UP-TO-DATE
+> Task :react-native-vision-camera:writeReleaseAarMetadata
+> Task :sayem314_react-native-keep-awake:writeReleaseAarMetadata
+
+> Task :app:createBundleReleaseJsAndAssets
+debug Reading Metro config from /Users/siddhantnigam/Downloads/klu-nest/metro.config.js
+warning: the transform cache was reset.
+                Welcome to Metro v0.80.12
+              Fast - Scalable - Integrated
+
+
+info Writing bundle output to: /Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle
+info Writing sourcemap output to: /Users/siddhantnigam/Downloads/klu-nest/android/app/build/intermediates/sourcemaps/react/release/index.android.bundle.packager.map
+info Done writing bundle output
+info Done writing sourcemap output
+info Copying 32 asset files
+info Done copying assets
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:1328:18: warning: the variable "DebuggerInternal" was not declared in function "__shouldPauseOnThrow"
+          typeof DebuggerInternal !== 'undefined' &&
+                 ^~~~~~~~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:6556:7: warning: the variable "setTimeout" was not declared in function "logCapturedError"
+      setTimeout(function () {
+      ^~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:4666:31: warning: the variable "nativeFabricUIManager" was not declared in anonymous function " 135#"
+  var _nativeFabricUIManage = nativeFabricUIManager,
+                              ^~~~~~~~~~~~~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:4694:21: warning: the variable "clearTimeout" was not declared in anonymous function " 135#"
+    cancelTimeout = clearTimeout;
+                    ^~~~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:9324:30: warning: the variable "__REACT_DEVTOOLS_GLOBAL_HOOK__" was not declared in anonymous function " 135#"
+  if ("undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__) {
+                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:11744:5: warning: the variable "setImmediate" was not declared in function "handleResolved"
+    setImmediate(function () {
+    ^~~~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:16016:12: warning: the variable "fetch" was not declared in anonymous function " 374#"
+    fetch: fetch,
+           ^~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:16017:14: warning: the variable "Headers" was not declared in anonymous function " 374#"
+    Headers: Headers,
+             ^~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:16018:14: warning: the variable "Request" was not declared in anonymous function " 374#"
+    Request: Request,
+             ^~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:16019:15: warning: the variable "Response" was not declared in anonymous function " 374#"
+    Response: Response
+              ^~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:16176:24: warning: the variable "FileReader" was not declared in function "readBlobAsArrayBuffer"
+      var reader = new FileReader();
+                       ^~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:16227:36: warning: the variable "Blob" was not declared in anonymous function " 385#"
+        } else if (support.blob && Blob.prototype.isPrototypeOf(body)) {
+                                   ^~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:16229:40: warning: the variable "FormData" was not declared in anonymous function " 385#"
+        } else if (support.formData && FormData.prototype.isPrototypeOf(body)) {
+                                       ^~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:16231:44: warning: the variable "URLSearchParams" was not declared in anonymous function " 385#"
+...e if (support.searchParams && URLSearchParams.prototype.isPrototypeOf(body...
+                                 ^~~~~~~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:16350:26: warning: the variable "AbortController" was not declared in anonymous function " 391#"
+          var ctrl = new AbortController();
+                         ^~~~~~~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:16484:23: warning: the variable "XMLHttpRequest" was not declared in anonymous function " 395#"
+        var xhr = new XMLHttpRequest();
+                      ^~~~~~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:16029:71: warning: the variable "self" was not declared in anonymous function " 377#"
+...undefined' && globalThis || typeof self !== 'undefined' && self ||
+                                      ^~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:26289:27: warning: the variable "performance" was not declared in anonymous function " 690#"
+  if ("object" === typeof performance && "function" === typeof performance.no...
+                          ^~~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:26312:26: warning: the variable "navigator" was not declared in anonymous function " 690#"
+  "undefined" !== typeof navigator && undefined !== navigator.scheduling && u...
+                         ^~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:26422:37: warning: the variable "MessageChannel" was not declared in anonymous function " 690#"
+  };else if ("undefined" !== typeof MessageChannel) {
+                                    ^~~~~~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:26437:34: warning: the variable "nativeRuntimeScheduler" was not declared in anonymous function " 690#"
+... = "undefined" !== typeof nativeRuntimeScheduler ? nativeRuntimeScheduler....
+                             ^~~~~~~~~~~~~~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:35536:34: warning: the variable "requestAnimationFrame" was not declared in function "start 9#"
+...    this._animationFrame = requestAnimationFrame(this.onUpdate.bind(this));
+                              ^~~~~~~~~~~~~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:74689:16: warning: the variable "SharedArrayBuffer" was not declared in function "from"
+    if (typeof SharedArrayBuffer !== 'undefined' && (isInstance(value, Shared...
+               ^~~~~~~~~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:77718:21: warning: the variable "queueMicrotask" was not declared in anonymous function " 2244#"
+  var asap = typeof queueMicrotask !== 'undefined' ? queueMicrotask.bind(_glo...
+                    ^~~~~~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:78249:76: warning: the variable "Buffer" was not declared in function "convertValue"
+... 'function' ? new Blob([value]) : Buffer.from(value);
+                                     ^~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:81874:5: warning: the property "passwordInput" was set multiple times in the object definition.
+    passwordInput: {
+    ^~~~~~~~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:81860:5: note: The first definition was here.
+    passwordInput: {
+    ^~~~~~~~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:93337:5: warning: the property "backBtn" was set multiple times in the object definition.
+    backBtn: {
+    ^~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:93208:5: note: The first definition was here.
+    backBtn: {
+    ^~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:93350:5: warning: the property "heading" was set multiple times in the object definition.
+    heading: {
+    ^~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:93200:5: note: The first definition was here.
+    heading: {
+    ^~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:94048:5: warning: the property "backBtn" was set multiple times in the object definition.
+    backBtn: {
+    ^~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:93992:5: note: The first definition was here.
+    backBtn: {
+    ^~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:94061:5: warning: the property "heading" was set multiple times in the object definition.
+    heading: {
+    ^~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:93983:5: note: The first definition was here.
+    heading: {
+    ^~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:94289:5: warning: the property "backBtn" was set multiple times in the object definition.
+    backBtn: {
+    ^~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:94233:5: note: The first definition was here.
+    backBtn: {
+    ^~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:94302:5: warning: the property "heading" was set multiple times in the object definition.
+    heading: {
+    ^~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:94224:5: note: The first definition was here.
+    heading: {
+    ^~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:95030:5: warning: the property "backBtn" was set multiple times in the object definition.
+    backBtn: {
+    ^~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:95005:5: note: The first definition was here.
+    backBtn: {
+    ^~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:95060:7: warning: the property "justifyContent" was set multiple times in the object definition.
+      justifyContent: 'center',
+      ^~~~~~~~~~~~~~~~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:95054:7: note: The first definition was here.
+      justifyContent: 'center',
+      ^~~~~~~~~~~~~~~~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:95061:7: warning: the property "alignItems" was set multiple times in the object definition.
+      alignItems: 'center'
+      ^~~~~~~~~~~~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:95055:7: note: The first definition was here.
+      alignItems: 'center',
+      ^~~~~~~~~~~~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:104521:7: warning: the property "marginBottom" was set multiple times in the object definition.
+      marginBottom: 1,
+      ^~~~~~~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:104518:7: note: The first definition was here.
+      marginBottom: (0, _$$_REQUIRE(_dependencyMap[16]).moderateScale)(30),
+      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:109921:30: warning: the variable "crypto" was not declared in anonymous function " 3313#"
+                  if (typeof crypto != 'undefined' && crypto && (crypto.getRa...
+                             ^~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:143139:158: warning: the variable "File" was not declared in function "isBinary"
+...| withNativeFile && obj instanceof File;
+                                      ^~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:143547:35: warning: the variable "addEventListener" was not declared in anonymous function " 4225#"
+... withEventListeners = typeof addEventListener === "function" && typeof rem...
+                                ^~~~~~~~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:143547:77: warning: the variable "removeEventListener" was not declared in anonymous function " 4225#"
+...er === "function" && typeof removeEventListener === "function";
+                               ^~~~~~~~~~~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:143618:65: warning: the variable "location" was not declared in function "SocketWithoutUpgrade"
+...ts.secure ? opts.secure : typeof location !== "undefined" && "https:" === ...
+                                    ^~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:144583:16: warning: the variable "TransformStream" was not declared in function "createPacketEncoderStream"
+    return new TransformStream({
+               ^~~~~~~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:144639:26: warning: the variable "TextDecoder" was not declared in function "createPacketDecoderStream"
+      TEXT_DECODER = new TextDecoder();
+                         ^~~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:145353:33: warning: the variable "WebTransport" was not declared in function "doOpen 1#"
+          this._transport = new WebTransport(this.createUri("https"), this.op...
+                                ^~~~~~~~~~~~
+/Users/siddhantnigam/Downloads/klu-nest/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:145684:16: warning: the variable "attachEvent" was not declared in anonymous function " 4301#"
+    if (typeof attachEvent === "function") {
+               ^~~~~~~~~~~
+
+> Task :app:checkReleaseAarMetadata
+> Task :app:generateReleaseResValues
+> Task :react-native-agora:generateReleaseResValues
+> Task :react-native-agora:generateReleaseResources
+> Task :react-native-agora:packageReleaseResources
+> Task :react-native-async-storage_async-storage:generateReleaseResValues
+> Task :react-native-async-storage_async-storage:generateReleaseResources
+> Task :react-native-async-storage_async-storage:packageReleaseResources
+> Task :react-native-document-picker:generateReleaseResValues
+> Task :react-native-document-picker:generateReleaseResources
+> Task :react-native-document-picker:packageReleaseResources
+> Task :react-native-gesture-handler:generateReleaseResValues
+> Task :react-native-gesture-handler:generateReleaseResources
+> Task :react-native-gesture-handler:packageReleaseResources
+> Task :react-native-image-crop-picker:generateReleaseResValues
+> Task :react-native-image-crop-picker:generateReleaseResources
+> Task :react-native-image-crop-picker:packageReleaseResources
+> Task :react-native-linear-gradient:generateReleaseResValues
+> Task :react-native-linear-gradient:generateReleaseResources
+> Task :react-native-linear-gradient:packageReleaseResources
+> Task :react-native-permissions:generateReleaseResValues
+> Task :react-native-permissions:generateReleaseResources
+> Task :react-native-permissions:packageReleaseResources
+> Task :react-native-picker_picker:generateReleaseResValues
+> Task :react-native-picker_picker:generateReleaseResources
+> Task :react-native-picker_picker:packageReleaseResources
+> Task :react-native-razorpay:generateReleaseResValues
+> Task :react-native-razorpay:generateReleaseResources
+> Task :react-native-razorpay:packageReleaseResources
+> Task :react-native-safe-area-context:generateReleaseResValues
+> Task :react-native-safe-area-context:generateReleaseResources
+> Task :react-native-safe-area-context:packageReleaseResources
+> Task :react-native-screens:generateReleaseResValues
+> Task :react-native-screens:generateReleaseResources
+> Task :react-native-screens:packageReleaseResources
+> Task :react-native-sound-player:generateReleaseResValues
+> Task :react-native-sound-player:generateReleaseResources
+> Task :react-native-sound-player:packageReleaseResources
+> Task :react-native-svg:generateReleaseResValues
+> Task :react-native-svg:generateReleaseResources
+> Task :react-native-svg:packageReleaseResources
+> Task :react-native-vector-icons:generateReleaseResValues
+> Task :react-native-vector-icons:generateReleaseResources
+> Task :react-native-vector-icons:packageReleaseResources
+> Task :react-native-video:generateReleaseResValues
+> Task :react-native-video:generateReleaseResources
+> Task :react-native-video:packageReleaseResources
+> Task :react-native-vision-camera:generateReleaseResValues
+> Task :react-native-vision-camera:generateReleaseResources
+> Task :react-native-vision-camera:packageReleaseResources
+> Task :sayem314_react-native-keep-awake:generateReleaseResValues
+> Task :sayem314_react-native-keep-awake:generateReleaseResources
+> Task :sayem314_react-native-keep-awake:packageReleaseResources
+> Task :app:mapReleaseSourceSetPaths
+> Task :app:generateReleaseResources
+> Task :app:packageReleaseResources
+> Task :app:createReleaseCompatibleScreenManifests
+> Task :app:extractDeepLinksRelease
+> Task :react-native-agora:extractDeepLinksRelease
+> Task :react-native-async-storage_async-storage:extractDeepLinksRelease
+> Task :react-native-document-picker:extractDeepLinksRelease
+> Task :react-native-gesture-handler:extractDeepLinksRelease
+> Task :react-native-image-crop-picker:extractDeepLinksRelease
+
+> Task :react-native-image-crop-picker:processReleaseManifest
+package="com.reactnative.ivpusic.imagepicker" found in source AndroidManifest.xml: /Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-image-crop-picker/android/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.reactnative.ivpusic.imagepicker" from the source AndroidManifest.xml: /Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-image-crop-picker/android/src/main/AndroidManifest.xml.
+
+> Task :react-native-linear-gradient:extractDeepLinksRelease
+> Task :app:parseReleaseLocalResources
+> Task :react-native-permissions:extractDeepLinksRelease
+
+> Task :react-native-linear-gradient:processReleaseManifest
+package="com.BV.LinearGradient" found in source AndroidManifest.xml: /Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-linear-gradient/android/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.BV.LinearGradient" from the source AndroidManifest.xml: /Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-linear-gradient/android/src/main/AndroidManifest.xml.
+
+> Task :react-native-async-storage_async-storage:processReleaseManifest
+package="com.reactnativecommunity.asyncstorage" found in source AndroidManifest.xml: /Users/siddhantnigam/Downloads/klu-nest/node_modules/@react-native-async-storage/async-storage/android/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.reactnativecommunity.asyncstorage" from the source AndroidManifest.xml: /Users/siddhantnigam/Downloads/klu-nest/node_modules/@react-native-async-storage/async-storage/android/src/main/AndroidManifest.xml.
+
+> Task :react-native-picker_picker:extractDeepLinksRelease
+
+> Task :react-native-document-picker:processReleaseManifest
+package="com.reactnativedocumentpicker" found in source AndroidManifest.xml: /Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-document-picker/android/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.reactnativedocumentpicker" from the source AndroidManifest.xml: /Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-document-picker/android/src/main/AndroidManifest.xml.
+
+> Task :react-native-permissions:processReleaseManifest
+> Task :react-native-agora:processReleaseManifest
+> Task :react-native-razorpay:extractDeepLinksRelease
+
+> Task :react-native-picker_picker:processReleaseManifest
+package="com.reactnativecommunity.picker" found in source AndroidManifest.xml: /Users/siddhantnigam/Downloads/klu-nest/node_modules/@react-native-picker/picker/android/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.reactnativecommunity.picker" from the source AndroidManifest.xml: /Users/siddhantnigam/Downloads/klu-nest/node_modules/@react-native-picker/picker/android/src/main/AndroidManifest.xml.
+
+> Task :react-native-safe-area-context:extractDeepLinksRelease
+
+> Task :react-native-razorpay:processReleaseManifest
+package="com.razorpay.rn" found in source AndroidManifest.xml: /Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-razorpay/android/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.razorpay.rn" from the source AndroidManifest.xml: /Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-razorpay/android/src/main/AndroidManifest.xml.
+
+> Task :react-native-gesture-handler:processReleaseManifest
+> Task :react-native-screens:extractDeepLinksRelease
+
+> Task :react-native-safe-area-context:processReleaseManifest
+package="com.th3rdwave.safeareacontext" found in source AndroidManifest.xml: /Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-safe-area-context/android/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.th3rdwave.safeareacontext" from the source AndroidManifest.xml: /Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-safe-area-context/android/src/main/AndroidManifest.xml.
+
+> Task :react-native-sound-player:extractDeepLinksRelease
+
+> Task :react-native-screens:processReleaseManifest
+package="com.swmansion.rnscreens" found in source AndroidManifest.xml: /Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-screens/android/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.swmansion.rnscreens" from the source AndroidManifest.xml: /Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-screens/android/src/main/AndroidManifest.xml.
+
+> Task :react-native-svg:extractDeepLinksRelease
+
+> Task :react-native-sound-player:processReleaseManifest
+package="com.johnsonsu.rnsoundplayer" found in source AndroidManifest.xml: /Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-sound-player/android/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.johnsonsu.rnsoundplayer" from the source AndroidManifest.xml: /Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-sound-player/android/src/main/AndroidManifest.xml.
+
+> Task :react-native-vector-icons:extractDeepLinksRelease
+> Task :react-native-svg:processReleaseManifest
+> Task :react-native-video:extractDeepLinksRelease
+
+> Task :react-native-vector-icons:processReleaseManifest
+package="com.oblador.vectoricons" found in source AndroidManifest.xml: /Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-vector-icons/android/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.oblador.vectoricons" from the source AndroidManifest.xml: /Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-vector-icons/android/src/main/AndroidManifest.xml.
+
+> Task :react-native-vision-camera:extractDeepLinksRelease
+> Task :react-native-video:processReleaseManifest
+> Task :react-native-vision-camera:processReleaseManifest
+> Task :sayem314_react-native-keep-awake:extractDeepLinksRelease
+
+> Task :sayem314_react-native-keep-awake:processReleaseManifest
+package="com.sayem.keepawake" found in source AndroidManifest.xml: /Users/siddhantnigam/Downloads/klu-nest/node_modules/@sayem314/react-native-keep-awake/android/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.sayem.keepawake" from the source AndroidManifest.xml: /Users/siddhantnigam/Downloads/klu-nest/node_modules/@sayem314/react-native-keep-awake/android/src/main/AndroidManifest.xml.
+
+> Task :react-native-agora:compileReleaseLibraryResources
+> Task :react-native-agora:parseReleaseLocalResources
+
+> Task :app:processReleaseMainManifest
+[io.agora.rtc:full-sdk:4.4.1] /Users/siddhantnigam/.gradle/caches/transforms-3/61fe30203c18ba983135f2541c4d8996/transformed/jetified-full-sdk-4.4.1/AndroidManifest.xml Warning:
+	Namespace 'io.agora.rtc' is used in multiple modules and/or libraries: io.agora.rtc:full-sdk:4.4.1, io.agora.rtc:iris-rtc:4.4.0-build.6. Please ensure that all modules and libraries have a unique namespace. For more information, See https://developer.android.com/studio/build/configure-app-module#set-namespace
+
+> Task :app:processReleaseManifest
+> Task :react-native-async-storage_async-storage:compileReleaseLibraryResources
+> Task :react-native-async-storage_async-storage:parseReleaseLocalResources
+> Task :react-native-document-picker:compileReleaseLibraryResources
+> Task :react-native-document-picker:parseReleaseLocalResources
+> Task :react-native-gesture-handler:compileReleaseLibraryResources
+> Task :react-native-agora:generateReleaseRFile
+> Task :react-native-async-storage_async-storage:generateReleaseRFile
+> Task :react-native-gesture-handler:parseReleaseLocalResources
+> Task :app:processReleaseManifestForPackage
+> Task :react-native-document-picker:generateReleaseRFile
+> Task :react-native-gesture-handler:generateReleaseRFile
+> Task :react-native-image-crop-picker:compileReleaseLibraryResources
+> Task :react-native-image-crop-picker:parseReleaseLocalResources
+> Task :react-native-linear-gradient:compileReleaseLibraryResources
+> Task :react-native-image-crop-picker:generateReleaseRFile
+> Task :react-native-linear-gradient:parseReleaseLocalResources
+> Task :react-native-permissions:compileReleaseLibraryResources
+> Task :react-native-linear-gradient:generateReleaseRFile
+> Task :react-native-permissions:parseReleaseLocalResources
+> Task :react-native-picker_picker:compileReleaseLibraryResources
+> Task :react-native-permissions:generateReleaseRFile
+> Task :react-native-picker_picker:parseReleaseLocalResources
+> Task :react-native-razorpay:compileReleaseLibraryResources
+> Task :react-native-razorpay:parseReleaseLocalResources
+> Task :react-native-safe-area-context:compileReleaseLibraryResources
+> Task :react-native-picker_picker:generateReleaseRFile
+> Task :react-native-safe-area-context:parseReleaseLocalResources
+> Task :react-native-razorpay:generateReleaseRFile
+> Task :react-native-safe-area-context:generateReleaseRFile
+> Task :react-native-sound-player:compileReleaseLibraryResources
+> Task :react-native-screens:parseReleaseLocalResources
+> Task :react-native-screens:compileReleaseLibraryResources
+> Task :react-native-sound-player:parseReleaseLocalResources
+> Task :react-native-screens:generateReleaseRFile
+> Task :react-native-svg:compileReleaseLibraryResources
+> Task :react-native-sound-player:generateReleaseRFile
+> Task :react-native-vector-icons:compileReleaseLibraryResources
+> Task :react-native-svg:parseReleaseLocalResources
+> Task :react-native-vector-icons:parseReleaseLocalResources
+> Task :react-native-video:compileReleaseLibraryResources
+> Task :react-native-video:parseReleaseLocalResources
+> Task :react-native-svg:generateReleaseRFile
+> Task :react-native-vision-camera:compileReleaseLibraryResources
+> Task :react-native-video:generateReleaseRFile
+> Task :react-native-vector-icons:generateReleaseRFile
+> Task :react-native-vision-camera:parseReleaseLocalResources
+> Task :sayem314_react-native-keep-awake:compileReleaseLibraryResources
+> Task :react-native-vision-camera:generateReleaseRFile
+> Task :sayem314_react-native-keep-awake:parseReleaseLocalResources
+> Task :react-native-agora:generateReleaseBuildConfig
+> Task :sayem314_react-native-keep-awake:generateReleaseRFile
+> Task :react-native-agora:javaPreCompileRelease
+> Task :react-native-async-storage_async-storage:generateReleaseBuildConfig
+> Task :app:mergeReleaseResources
+> Task :react-native-agora:compileReleaseJavaWithJavac
+Note: /Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-agora/android/src/main/java/io/agora/rtc/ng/react/AgoraRtcNgPackage.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :react-native-async-storage_async-storage:javaPreCompileRelease
+> Task :react-native-document-picker:generateReleaseBuildConfig
+> Task :react-native-agora:bundleLibCompileToJarRelease
+
+> Task :react-native-async-storage_async-storage:compileReleaseJavaWithJavac
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /Users/siddhantnigam/Downloads/klu-nest/node_modules/@react-native-async-storage/async-storage/android/src/javaPackage/java/com/reactnativecommunity/asyncstorage/AsyncStoragePackage.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :react-native-async-storage_async-storage:bundleLibCompileToJarRelease
+> Task :react-native-document-picker:javaPreCompileRelease
+> Task :react-native-gesture-handler:checkKotlinGradlePluginConfigurationErrors
+
+> Task :react-native-document-picker:compileReleaseJavaWithJavac
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :react-native-document-picker:bundleLibCompileToJarRelease
+> Task :react-native-gesture-handler:generateReleaseBuildConfig
+> Task :app:processReleaseResources
+> Task :react-native-image-crop-picker:generateReleaseBuildConfig
+> Task :react-native-gesture-handler:javaPreCompileRelease
+> Task :react-native-image-crop-picker:javaPreCompileRelease
+> Task :react-native-linear-gradient:generateReleaseBuildConfig
+
+> Task :react-native-image-crop-picker:compileReleaseJavaWithJavac
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :react-native-permissions:checkKotlinGradlePluginConfigurationErrors
+> Task :react-native-image-crop-picker:bundleLibCompileToJarRelease
+> Task :react-native-linear-gradient:javaPreCompileRelease
+> Task :react-native-permissions:generateReleaseBuildConfig
+> Task :react-native-linear-gradient:compileReleaseJavaWithJavac
+> Task :react-native-linear-gradient:bundleLibCompileToJarRelease
+> Task :react-native-permissions:javaPreCompileRelease
+> Task :react-native-picker_picker:generateReleaseBuildConfig
+> Task :react-native-picker_picker:javaPreCompileRelease
+> Task :react-native-razorpay:generateReleaseBuildConfig
+
+> Task :react-native-picker_picker:compileReleaseJavaWithJavac
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :react-native-safe-area-context:checkKotlinGradlePluginConfigurationErrors
+> Task :react-native-razorpay:javaPreCompileRelease
+> Task :react-native-picker_picker:bundleLibCompileToJarRelease
+> Task :react-native-safe-area-context:generateReleaseBuildConfig
+
+> Task :react-native-razorpay:compileReleaseJavaWithJavac
+Note: /Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-razorpay/android/src/main/java/com/razorpay/rn/RazorpayModule.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :react-native-razorpay:bundleLibCompileToJarRelease
+> Task :react-native-screens:checkKotlinGradlePluginConfigurationErrors
+> Task :react-native-safe-area-context:javaPreCompileRelease
+> Task :react-native-screens:generateReleaseBuildConfig
+> Task :react-native-screens:javaPreCompileRelease
+> Task :react-native-sound-player:generateReleaseBuildConfig
+> Task :react-native-sound-player:javaPreCompileRelease
+> Task :react-native-svg:generateReleaseBuildConfig
+
+> Task :react-native-sound-player:compileReleaseJavaWithJavac
+Note: /Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-sound-player/android/src/main/java/com/johnsonsu/rnsoundplayer/RNSoundPlayerModule.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :react-native-sound-player:bundleLibCompileToJarRelease
+> Task :react-native-svg:javaPreCompileRelease
+
+> Task :react-native-svg:compileReleaseJavaWithJavac
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :react-native-vector-icons:generateReleaseBuildConfig
+> Task :react-native-video:checkKotlinGradlePluginConfigurationErrors
+> Task :react-native-vector-icons:javaPreCompileRelease
+> Task :react-native-video:generateReleaseBuildConfig
+> Task :react-native-svg:bundleLibCompileToJarRelease
+
+> Task :react-native-vector-icons:compileReleaseJavaWithJavac
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :react-native-vector-icons:bundleLibCompileToJarRelease
+
+> Task :react-native-permissions:compileReleaseKotlin
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-permissions/android/src/main/java/com/zoontek/rnpermissions/RNPermissionsPackage.kt:22:24 'constructor ReactModuleInfo(String!, String!, Boolean, Boolean, Boolean, Boolean, Boolean)' is deprecated. Deprecated in Java
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-permissions/android/src/oldarch/com/zoontek/rnpermissions/RNPermissionsModule.kt:55:28 Parameter 'options' is never used
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-permissions/android/src/oldarch/com/zoontek/rnpermissions/RNPermissionsModule.kt:75:31 Parameter 'purposeKey' is never used
+
+> Task :react-native-permissions:compileReleaseJavaWithJavac
+> Task :react-native-vision-camera:checkKotlinGradlePluginConfigurationErrors
+> Task :react-native-permissions:bundleLibCompileToJarRelease
+> Task :react-native-video:javaPreCompileRelease
+> Task :react-native-vision-camera:generateReleaseBuildConfig
+> Task :react-native-vision-camera:javaPreCompileRelease
+> Task :sayem314_react-native-keep-awake:generateReleaseBuildConfig
+> Task :sayem314_react-native-keep-awake:javaPreCompileRelease
+> Task :app:javaPreCompileRelease
+
+> Task :sayem314_react-native-keep-awake:compileReleaseJavaWithJavac
+Note: /Users/siddhantnigam/Downloads/klu-nest/node_modules/@sayem314/react-native-keep-awake/android/src/main/java/com/sayem/keepawake/KCKeepAwakePackage.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :sayem314_react-native-keep-awake:bundleLibCompileToJarRelease
+> Task :app:copyReactNativeVectorIconFonts
+> Task :app:extractProguardFiles
+> Task :react-native-agora:processReleaseJavaRes NO-SOURCE
+> Task :react-native-agora:bundleLibRuntimeToJarRelease
+> Task :react-native-agora:mergeReleaseJniLibFolders
+> Task :react-native-agora:createFullJarRelease
+> Task :react-native-agora:mergeReleaseNativeLibs NO-SOURCE
+> Task :react-native-agora:stripReleaseDebugSymbols NO-SOURCE
+> Task :react-native-agora:extractDeepLinksForAarRelease
+> Task :react-native-agora:copyReleaseJniLibsProjectAndLocalJars
+
+> Task :react-native-safe-area-context:compileReleaseKotlin
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaContextPackage.kt:27:11 'constructor ReactModuleInfo(String!, String!, Boolean, Boolean, Boolean, Boolean, Boolean)' is deprecated. Deprecated in Java
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaContextPackage.kt:33:27 'hasConstants: Boolean' is deprecated. Deprecated in Java
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaView.kt:59:23 'getter for uiImplementation: UIImplementation!' is deprecated. Deprecated in Java
+
+> Task :react-native-video:compileReleaseKotlin
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-video/android/src/main/java/com/brentvatne/common/api/CMCDProps.kt:40:31 Unnecessary safe call on a non-null receiver of type ReadableMap
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-video/android/src/main/java/com/brentvatne/common/api/CMCDProps.kt:41:39 Unnecessary safe call on a non-null receiver of type ReadableMap
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-video/android/src/main/java/com/brentvatne/common/api/CMCDProps.kt:42:48 Unnecessary safe call on a non-null receiver of type ReadableMap
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-video/android/src/main/java/com/brentvatne/common/api/CMCDProps.kt:43:48 Unnecessary safe call on a non-null receiver of type ReadableMap
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-video/android/src/main/java/com/brentvatne/common/api/Source.kt:258:46 Unnecessary safe call on a non-null receiver of type ReadableMap
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-video/android/src/main/java/com/brentvatne/common/api/Source.kt:259:48 Unnecessary safe call on a non-null receiver of type ReadableMap
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-video/android/src/main/java/com/brentvatne/exoplayer/ExoPlayerView.kt:49:9 'setUseArtwork(Boolean): Unit' is deprecated. Deprecated in Java
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-video/android/src/main/java/com/brentvatne/exoplayer/ExoPlayerView.kt:142:27 Parameter 'viewType' is never used
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-video/android/src/main/java/com/brentvatne/exoplayer/PictureInPictureUtil.kt:181:47 Elvis operator (?:) always returns the left operand of non-nullable type ComponentActivity
+
+> Task :react-native-screens:compileReleaseKotlin
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/RNScreensPackage.kt:58:17 'constructor ReactModuleInfo(String!, String!, Boolean, Boolean, Boolean, Boolean, Boolean)' is deprecated. Deprecated in Java
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenContainer.kt:33:53 'FrameCallback' is deprecated. Deprecated in Java
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenContainer.kt:34:38 'FrameCallback' is deprecated. Deprecated in Java
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackHeaderConfig.kt:101:38 'getter for systemWindowInsetTop: Int' is deprecated. Deprecated in Java
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:62:53 'getter for statusBarColor: Int' is deprecated. Deprecated in Java
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:73:48 'getter for statusBarColor: Int' is deprecated. Deprecated in Java
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:76:32 'setter for statusBarColor: Int' is deprecated. Deprecated in Java
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:146:47 'replaceSystemWindowInsets(Int, Int, Int, Int): WindowInsetsCompat' is deprecated. Deprecated in Java
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:147:51 'getter for systemWindowInsetLeft: Int' is deprecated. Deprecated in Java
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:149:51 'getter for systemWindowInsetRight: Int' is deprecated. Deprecated in Java
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:150:51 'getter for systemWindowInsetBottom: Int' is deprecated. Deprecated in Java
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:197:72 'getter for navigationBarColor: Int' is deprecated. Deprecated in Java
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:203:16 'setter for navigationBarColor: Int' is deprecated. Deprecated in Java
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/SearchBarManager.kt:138:66 Elvis operator (?:) always returns the left operand of non-nullable type Boolean
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/SearchBarView.kt:153:43 Parameter 'flag' is never used
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-screens/android/src/paper/java/com/swmansion/rnscreens/FabricEnabledViewGroup.kt:10:25 Parameter 'wrapper' is never used
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-screens/android/src/paper/java/com/swmansion/rnscreens/FabricEnabledViewGroup.kt:13:9 Parameter 'width' is never used
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-screens/android/src/paper/java/com/swmansion/rnscreens/FabricEnabledViewGroup.kt:14:9 Parameter 'height' is never used
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-screens/android/src/paper/java/com/swmansion/rnscreens/FabricEnabledViewGroup.kt:15:9 Parameter 'headerHeight' is never used
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-screens/android/src/paper/java/com/swmansion/rnscreens/NativeProxy.kt:7:36 Parameter 'fabricUIManager' is never used
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-screens/android/src/paper/java/com/swmansion/rnscreens/NativeProxy.kt:11:13 Parameter 'tag' is never used
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-screens/android/src/paper/java/com/swmansion/rnscreens/NativeProxy.kt:12:13 Parameter 'view' is never used
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-screens/android/src/paper/java/com/swmansion/rnscreens/NativeProxy.kt:15:33 Parameter 'tag' is never used
+
+> Task :react-native-gesture-handler:compileReleaseKotlin
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-gesture-handler/android/src/main/java/com/swmansion/gesturehandler/RNGestureHandlerPackage.kt:69:42 'constructor ReactModuleInfo(String!, String!, Boolean, Boolean, Boolean, Boolean, Boolean)' is deprecated. Deprecated in Java
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-gesture-handler/android/src/main/java/com/swmansion/gesturehandler/core/FlingGestureHandler.kt:25:26 Parameter 'event' is never used
+
+> Task :react-native-agora:extractReleaseAnnotations
+
+> Task :react-native-vision-camera:compileReleaseKotlin
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-vision-camera/android/src/main/java/com/mrousavy/camera/core/utils/CamcorderProfileUtils.kt:71:42 'get(Int, Int): CamcorderProfile!' is deprecated. Deprecated in Java
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-vision-camera/android/src/main/java/com/mrousavy/camera/core/utils/CamcorderProfileUtils.kt:96:42 'get(Int, Int): CamcorderProfile!' is deprecated. Deprecated in Java
+w: file:///Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-vision-camera/android/src/main/java/com/mrousavy/camera/core/utils/CamcorderProfileUtils.kt:121:42 'get(Int, Int): CamcorderProfile!' is deprecated. Deprecated in Java
+
+> Task :react-native-gesture-handler:compileReleaseJavaWithJavac
+Note: /Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-gesture-handler/android/paper/src/main/java/com/swmansion/gesturehandler/NativeRNGestureHandlerModuleSpec.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :react-native-gesture-handler:bundleLibCompileToJarRelease
+
+> Task :react-native-safe-area-context:compileReleaseJavaWithJavac
+Note: /Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-safe-area-context/android/src/paper/java/com/th3rdwave/safeareacontext/NativeSafeAreaContextSpec.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :react-native-safe-area-context:bundleLibCompileToJarRelease
+
+> Task :react-native-screens:compileReleaseJavaWithJavac
+Note: /Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-screens/android/src/paper/java/com/swmansion/rnscreens/NativeScreensModuleSpec.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :react-native-screens:bundleLibCompileToJarRelease
+
+> Task :react-native-video:compileReleaseJavaWithJavac
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /Users/siddhantnigam/Downloads/klu-nest/node_modules/react-native-video/android/src/main/java/com/brentvatne/exoplayer/ReactExoplayerView.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :react-native-video:bundleLibCompileToJarRelease
+> Task :react-native-vision-camera:compileReleaseJavaWithJavac
+> Task :react-native-agora:mergeReleaseGeneratedProguardFiles
+> Task :react-native-agora:mergeReleaseConsumerProguardFiles
+> Task :react-native-vision-camera:bundleLibCompileToJarRelease
+> Task :react-native-agora:mergeReleaseShaders
+> Task :react-native-agora:compileReleaseShaders NO-SOURCE
+> Task :react-native-agora:generateReleaseAssets UP-TO-DATE
+> Task :react-native-agora:packageReleaseAssets
+> Task :react-native-agora:prepareLintJarForPublish
+> Task :react-native-agora:prepareReleaseArtProfile
+> Task :react-native-agora:extractProguardFiles
+> Task :react-native-agora:writeReleaseLintModelMetadata
+> Task :react-native-async-storage_async-storage:processReleaseJavaRes NO-SOURCE
+> Task :react-native-async-storage_async-storage:bundleLibRuntimeToJarRelease
+> Task :react-native-async-storage_async-storage:mergeReleaseJniLibFolders
+> Task :react-native-async-storage_async-storage:createFullJarRelease
+> Task :react-native-async-storage_async-storage:mergeReleaseNativeLibs NO-SOURCE
+> Task :react-native-async-storage_async-storage:stripReleaseDebugSymbols NO-SOURCE
+> Task :react-native-async-storage_async-storage:copyReleaseJniLibsProjectAndLocalJars
+> Task :react-native-async-storage_async-storage:extractDeepLinksForAarRelease
+> Task :react-native-agora:mergeReleaseJavaResource
+> Task :react-native-async-storage_async-storage:extractReleaseAnnotations
+> Task :react-native-agora:syncReleaseLibJars
+> Task :react-native-agora:bundleReleaseLocalLintAar
+> Task :react-native-async-storage_async-storage:mergeReleaseGeneratedProguardFiles
+> Task :react-native-async-storage_async-storage:mergeReleaseConsumerProguardFiles
+> Task :react-native-async-storage_async-storage:mergeReleaseShaders
+> Task :react-native-async-storage_async-storage:compileReleaseShaders NO-SOURCE
+> Task :app:compileReleaseKotlin
+> Task :react-native-agora:generateReleaseLintModel
+> Task :app:compileReleaseJavaWithJavac
+> Task :react-native-async-storage_async-storage:generateReleaseAssets UP-TO-DATE
+> Task :react-native-async-storage_async-storage:packageReleaseAssets
+> Task :react-native-async-storage_async-storage:prepareLintJarForPublish
+> Task :react-native-async-storage_async-storage:prepareReleaseArtProfile
+> Task :react-native-async-storage_async-storage:mergeReleaseJavaResource
+> Task :react-native-async-storage_async-storage:extractProguardFiles
+> Task :react-native-async-storage_async-storage:syncReleaseLibJars
+> Task :react-native-async-storage_async-storage:bundleReleaseLocalLintAar
+> Task :react-native-async-storage_async-storage:writeReleaseLintModelMetadata
+> Task :react-native-document-picker:processReleaseJavaRes NO-SOURCE
+> Task :react-native-document-picker:bundleLibRuntimeToJarRelease
+> Task :react-native-async-storage_async-storage:generateReleaseLintModel
+> Task :react-native-document-picker:createFullJarRelease
+> Task :react-native-document-picker:mergeReleaseJniLibFolders
+> Task :react-native-document-picker:mergeReleaseNativeLibs NO-SOURCE
+> Task :react-native-document-picker:stripReleaseDebugSymbols NO-SOURCE
+> Task :react-native-document-picker:copyReleaseJniLibsProjectAndLocalJars
+> Task :react-native-document-picker:extractDeepLinksForAarRelease
+> Task :react-native-document-picker:extractReleaseAnnotations
+> Task :react-native-document-picker:mergeReleaseGeneratedProguardFiles
+> Task :react-native-document-picker:mergeReleaseConsumerProguardFiles
+> Task :react-native-document-picker:mergeReleaseShaders
+> Task :react-native-document-picker:compileReleaseShaders NO-SOURCE
+> Task :react-native-document-picker:generateReleaseAssets UP-TO-DATE
+> Task :react-native-document-picker:packageReleaseAssets
+> Task :react-native-document-picker:prepareLintJarForPublish
+> Task :react-native-document-picker:prepareReleaseArtProfile
+> Task :react-native-document-picker:mergeReleaseJavaResource
+> Task :react-native-document-picker:extractProguardFiles
+> Task :react-native-document-picker:syncReleaseLibJars
+> Task :react-native-document-picker:bundleReleaseLocalLintAar
+> Task :react-native-document-picker:writeReleaseLintModelMetadata
+> Task :react-native-gesture-handler:processReleaseJavaRes
+> Task :react-native-gesture-handler:bundleLibRuntimeToJarRelease
+> Task :react-native-document-picker:generateReleaseLintModel
+> Task :react-native-gesture-handler:createFullJarRelease
+> Task :react-native-gesture-handler:mergeReleaseJniLibFolders
+> Task :react-native-gesture-handler:mergeReleaseNativeLibs NO-SOURCE
+> Task :react-native-gesture-handler:stripReleaseDebugSymbols NO-SOURCE
+> Task :react-native-gesture-handler:copyReleaseJniLibsProjectAndLocalJars
+> Task :react-native-gesture-handler:extractDeepLinksForAarRelease
+> Task :react-native-gesture-handler:extractReleaseAnnotations
+> Task :react-native-gesture-handler:mergeReleaseGeneratedProguardFiles
+> Task :react-native-gesture-handler:mergeReleaseConsumerProguardFiles
+> Task :react-native-gesture-handler:mergeReleaseShaders
+> Task :react-native-gesture-handler:compileReleaseShaders NO-SOURCE
+> Task :react-native-gesture-handler:generateReleaseAssets UP-TO-DATE
+> Task :react-native-gesture-handler:packageReleaseAssets
+> Task :react-native-gesture-handler:prepareLintJarForPublish
+> Task :react-native-gesture-handler:prepareReleaseArtProfile
+> Task :react-native-gesture-handler:extractProguardFiles
+> Task :react-native-gesture-handler:writeReleaseLintModelMetadata
+> Task :react-native-image-crop-picker:processReleaseJavaRes NO-SOURCE
+> Task :react-native-image-crop-picker:bundleLibRuntimeToJarRelease
+> Task :react-native-image-crop-picker:mergeReleaseJniLibFolders
+> Task :react-native-image-crop-picker:createFullJarRelease
+> Task :react-native-gesture-handler:mergeReleaseJavaResource
+> Task :react-native-image-crop-picker:mergeReleaseNativeLibs NO-SOURCE
+> Task :react-native-gesture-handler:syncReleaseLibJars
+> Task :react-native-gesture-handler:bundleReleaseLocalLintAar
+> Task :react-native-image-crop-picker:stripReleaseDebugSymbols NO-SOURCE
+> Task :react-native-image-crop-picker:copyReleaseJniLibsProjectAndLocalJars
+> Task :react-native-image-crop-picker:extractDeepLinksForAarRelease
+> Task :react-native-image-crop-picker:extractReleaseAnnotations
+> Task :react-native-gesture-handler:generateReleaseLintModel
+> Task :react-native-image-crop-picker:mergeReleaseGeneratedProguardFiles
+> Task :react-native-image-crop-picker:mergeReleaseConsumerProguardFiles
+> Task :react-native-image-crop-picker:mergeReleaseShaders
+> Task :react-native-image-crop-picker:compileReleaseShaders NO-SOURCE
+> Task :react-native-image-crop-picker:generateReleaseAssets UP-TO-DATE
+> Task :react-native-image-crop-picker:packageReleaseAssets
+> Task :react-native-image-crop-picker:prepareLintJarForPublish
+> Task :react-native-image-crop-picker:prepareReleaseArtProfile
+> Task :react-native-image-crop-picker:mergeReleaseJavaResource
+> Task :react-native-image-crop-picker:syncReleaseLibJars
+> Task :react-native-image-crop-picker:bundleReleaseLocalLintAar
+> Task :react-native-image-crop-picker:extractProguardFiles
+> Task :react-native-image-crop-picker:writeReleaseLintModelMetadata
+> Task :react-native-linear-gradient:processReleaseJavaRes NO-SOURCE
+> Task :react-native-linear-gradient:bundleLibRuntimeToJarRelease
+> Task :react-native-linear-gradient:mergeReleaseJniLibFolders
+> Task :react-native-linear-gradient:createFullJarRelease
+> Task :react-native-linear-gradient:mergeReleaseNativeLibs NO-SOURCE
+> Task :react-native-linear-gradient:stripReleaseDebugSymbols NO-SOURCE
+> Task :react-native-linear-gradient:copyReleaseJniLibsProjectAndLocalJars
+> Task :react-native-linear-gradient:extractDeepLinksForAarRelease
+> Task :react-native-linear-gradient:extractReleaseAnnotations
+> Task :react-native-linear-gradient:mergeReleaseGeneratedProguardFiles
+> Task :react-native-linear-gradient:mergeReleaseConsumerProguardFiles
+> Task :react-native-linear-gradient:mergeReleaseShaders
+> Task :react-native-linear-gradient:compileReleaseShaders NO-SOURCE
+> Task :react-native-linear-gradient:generateReleaseAssets UP-TO-DATE
+> Task :react-native-linear-gradient:packageReleaseAssets
+> Task :react-native-linear-gradient:prepareLintJarForPublish
+> Task :react-native-linear-gradient:prepareReleaseArtProfile
+> Task :react-native-linear-gradient:mergeReleaseJavaResource
+> Task :react-native-linear-gradient:extractProguardFiles
+> Task :react-native-linear-gradient:syncReleaseLibJars
+> Task :react-native-image-crop-picker:generateReleaseLintModel
+> Task :react-native-linear-gradient:bundleReleaseLocalLintAar
+> Task :react-native-linear-gradient:writeReleaseLintModelMetadata
+> Task :react-native-permissions:bundleLibRuntimeToJarRelease
+> Task :react-native-permissions:processReleaseJavaRes
+> Task :react-native-linear-gradient:generateReleaseLintModel
+> Task :react-native-permissions:createFullJarRelease
+> Task :react-native-permissions:mergeReleaseJniLibFolders
+> Task :react-native-permissions:mergeReleaseNativeLibs NO-SOURCE
+> Task :react-native-permissions:stripReleaseDebugSymbols NO-SOURCE
+> Task :react-native-permissions:copyReleaseJniLibsProjectAndLocalJars
+> Task :react-native-permissions:extractDeepLinksForAarRelease
+> Task :react-native-permissions:extractReleaseAnnotations
+> Task :react-native-permissions:mergeReleaseGeneratedProguardFiles
+> Task :react-native-permissions:mergeReleaseConsumerProguardFiles
+> Task :react-native-permissions:mergeReleaseShaders
+> Task :react-native-permissions:compileReleaseShaders NO-SOURCE
+> Task :react-native-permissions:generateReleaseAssets UP-TO-DATE
+> Task :react-native-permissions:packageReleaseAssets
+> Task :react-native-permissions:prepareLintJarForPublish
+> Task :react-native-permissions:prepareReleaseArtProfile
+> Task :react-native-permissions:mergeReleaseJavaResource
+> Task :react-native-permissions:extractProguardFiles
+> Task :react-native-permissions:syncReleaseLibJars
+> Task :react-native-permissions:bundleReleaseLocalLintAar
+> Task :react-native-permissions:writeReleaseLintModelMetadata
+> Task :react-native-picker_picker:processReleaseJavaRes NO-SOURCE
+> Task :react-native-picker_picker:bundleLibRuntimeToJarRelease
+> Task :react-native-permissions:generateReleaseLintModel
+> Task :react-native-picker_picker:createFullJarRelease
+> Task :react-native-picker_picker:mergeReleaseJniLibFolders
+> Task :react-native-picker_picker:mergeReleaseNativeLibs NO-SOURCE
+> Task :react-native-picker_picker:stripReleaseDebugSymbols NO-SOURCE
+> Task :react-native-picker_picker:copyReleaseJniLibsProjectAndLocalJars
+> Task :react-native-picker_picker:extractDeepLinksForAarRelease
+> Task :react-native-picker_picker:extractReleaseAnnotations
+> Task :react-native-picker_picker:mergeReleaseGeneratedProguardFiles
+> Task :react-native-picker_picker:mergeReleaseConsumerProguardFiles
+> Task :react-native-picker_picker:mergeReleaseShaders
+> Task :react-native-picker_picker:compileReleaseShaders NO-SOURCE
+> Task :react-native-picker_picker:generateReleaseAssets UP-TO-DATE
+> Task :react-native-picker_picker:packageReleaseAssets
+> Task :react-native-picker_picker:prepareLintJarForPublish
+> Task :react-native-picker_picker:prepareReleaseArtProfile
+> Task :react-native-picker_picker:extractProguardFiles
+> Task :react-native-picker_picker:mergeReleaseJavaResource
+> Task :react-native-picker_picker:writeReleaseLintModelMetadata
+> Task :react-native-picker_picker:syncReleaseLibJars
+> Task :react-native-picker_picker:bundleReleaseLocalLintAar
+> Task :react-native-razorpay:bundleLibRuntimeToJarRelease
+> Task :react-native-razorpay:processReleaseJavaRes NO-SOURCE
+> Task :react-native-razorpay:createFullJarRelease
+> Task :react-native-picker_picker:generateReleaseLintModel
+> Task :react-native-razorpay:mergeReleaseJniLibFolders
+> Task :react-native-razorpay:mergeReleaseNativeLibs NO-SOURCE
+> Task :react-native-razorpay:stripReleaseDebugSymbols NO-SOURCE
+> Task :react-native-razorpay:copyReleaseJniLibsProjectAndLocalJars
+> Task :react-native-razorpay:extractDeepLinksForAarRelease
+> Task :react-native-razorpay:extractReleaseAnnotations
+> Task :react-native-razorpay:mergeReleaseGeneratedProguardFiles
+> Task :react-native-razorpay:mergeReleaseConsumerProguardFiles
+> Task :react-native-razorpay:mergeReleaseShaders
+> Task :react-native-razorpay:compileReleaseShaders NO-SOURCE
+> Task :react-native-razorpay:generateReleaseAssets UP-TO-DATE
+> Task :react-native-razorpay:packageReleaseAssets
+> Task :react-native-razorpay:prepareLintJarForPublish
+> Task :react-native-razorpay:prepareReleaseArtProfile
+> Task :react-native-razorpay:mergeReleaseJavaResource
+> Task :react-native-razorpay:extractProguardFiles
+> Task :react-native-razorpay:syncReleaseLibJars
+> Task :react-native-razorpay:bundleReleaseLocalLintAar
+> Task :react-native-razorpay:writeReleaseLintModelMetadata
+> Task :react-native-safe-area-context:bundleLibRuntimeToJarRelease
+> Task :react-native-safe-area-context:processReleaseJavaRes
+> Task :react-native-razorpay:generateReleaseLintModel
+> Task :react-native-safe-area-context:createFullJarRelease
+> Task :react-native-safe-area-context:mergeReleaseJniLibFolders
+> Task :react-native-safe-area-context:mergeReleaseNativeLibs NO-SOURCE
+> Task :react-native-safe-area-context:stripReleaseDebugSymbols NO-SOURCE
+> Task :react-native-safe-area-context:copyReleaseJniLibsProjectAndLocalJars
+> Task :react-native-safe-area-context:extractDeepLinksForAarRelease
+> Task :react-native-safe-area-context:extractReleaseAnnotations
+> Task :react-native-safe-area-context:mergeReleaseGeneratedProguardFiles
+> Task :react-native-safe-area-context:mergeReleaseConsumerProguardFiles
+> Task :react-native-safe-area-context:mergeReleaseShaders
+> Task :react-native-safe-area-context:compileReleaseShaders NO-SOURCE
+> Task :react-native-safe-area-context:generateReleaseAssets UP-TO-DATE
+> Task :react-native-safe-area-context:packageReleaseAssets
+> Task :react-native-safe-area-context:prepareLintJarForPublish
+> Task :react-native-safe-area-context:prepareReleaseArtProfile
+> Task :react-native-safe-area-context:mergeReleaseJavaResource
+> Task :react-native-safe-area-context:extractProguardFiles
+> Task :react-native-safe-area-context:syncReleaseLibJars
+> Task :react-native-safe-area-context:bundleReleaseLocalLintAar
+> Task :react-native-safe-area-context:writeReleaseLintModelMetadata
+> Task :react-native-screens:processReleaseJavaRes
+> Task :react-native-screens:bundleLibRuntimeToJarRelease
+> Task :react-native-safe-area-context:generateReleaseLintModel
+> Task :react-native-screens:createFullJarRelease
+
+> Task :react-native-screens:configureCMakeRelWithDebInfo[arm64-v8a]
+[CXX5304] This version only understands SDK XML versions up to 3 but an SDK XML file of version 4 was encountered. This can happen if you use versions of Android Studio and the command-line tools that were released at different times.
+[CXX5304] This version only understands SDK XML versions up to 3 but an SDK XML file of version 4 was encountered. This can happen if you use versions of Android Studio and the command-line tools that were released at different times.
+[CXX5304] package.xml parsing problem. unexpected element (uri:"", local:"abis"). Expected elements are <{}vendor>,<{}codename>,<{}base-extension>,<{}abi>,<{}api-level>,<{}extension-level>,<{}tag>
+[CXX5304] package.xml parsing problem. unexpected element (uri:"", local:"abis"). Expected elements are <{}vendor>,<{}codename>,<{}base-extension>,<{}abi>,<{}api-level>,<{}extension-level>,<{}tag>
+[CXX5304] package.xml parsing problem. unexpected element (uri:"", local:"abis"). Expected elements are <{}vendor>,<{}codename>,<{}base-extension>,<{}abi>,<{}api-level>,<{}extension-level>,<{}tag>
+[CXX5304] package.xml parsing problem. unexpected element (uri:"", local:"abis"). Expected elements are <{}vendor>,<{}codename>,<{}base-extension>,<{}abi>,<{}api-level>,<{}extension-level>,<{}tag>
+
+> Task :react-native-screens:buildCMakeRelWithDebInfo[arm64-v8a]
+> Task :react-native-screens:configureCMakeRelWithDebInfo[armeabi-v7a]
+> Task :react-native-screens:buildCMakeRelWithDebInfo[armeabi-v7a]
+> Task :react-native-screens:configureCMakeRelWithDebInfo[x86]
+> Task :react-native-screens:buildCMakeRelWithDebInfo[x86]
+> Task :react-native-screens:configureCMakeRelWithDebInfo[x86_64]
+> Task :react-native-screens:buildCMakeRelWithDebInfo[x86_64]
+> Task :react-native-screens:mergeReleaseJniLibFolders
+> Task :react-native-screens:extractDeepLinksForAarRelease
+> Task :react-native-screens:extractReleaseAnnotations
+> Task :react-native-screens:mergeReleaseNativeLibs
+> Task :react-native-screens:mergeReleaseGeneratedProguardFiles
+> Task :react-native-screens:mergeReleaseConsumerProguardFiles
+> Task :react-native-screens:mergeReleaseShaders
+> Task :react-native-screens:compileReleaseShaders NO-SOURCE
+> Task :react-native-screens:generateReleaseAssets UP-TO-DATE
+> Task :react-native-screens:packageReleaseAssets
+> Task :react-native-screens:prepareLintJarForPublish
+> Task :react-native-screens:prepareReleaseArtProfile
+> Task :react-native-screens:mergeReleaseJavaResource
+> Task :react-native-screens:extractProguardFiles
+> Task :react-native-screens:stripReleaseDebugSymbols
+> Task :react-native-screens:syncReleaseLibJars
+> Task :react-native-screens:writeReleaseLintModelMetadata
+> Task :react-native-sound-player:processReleaseJavaRes NO-SOURCE
+> Task :react-native-screens:copyReleaseJniLibsProjectAndLocalJars
+> Task :react-native-sound-player:bundleLibRuntimeToJarRelease
+> Task :react-native-sound-player:mergeReleaseJniLibFolders
+> Task :react-native-screens:bundleReleaseLocalLintAar
+> Task :react-native-sound-player:createFullJarRelease
+> Task :react-native-sound-player:mergeReleaseNativeLibs NO-SOURCE
+> Task :react-native-sound-player:stripReleaseDebugSymbols NO-SOURCE
+> Task :react-native-sound-player:copyReleaseJniLibsProjectAndLocalJars
+> Task :react-native-sound-player:extractDeepLinksForAarRelease
+> Task :react-native-sound-player:extractReleaseAnnotations
+> Task :react-native-sound-player:mergeReleaseGeneratedProguardFiles
+> Task :react-native-sound-player:mergeReleaseConsumerProguardFiles
+> Task :react-native-sound-player:mergeReleaseShaders
+> Task :react-native-sound-player:compileReleaseShaders NO-SOURCE
+> Task :react-native-sound-player:generateReleaseAssets UP-TO-DATE
+> Task :react-native-sound-player:packageReleaseAssets
+> Task :react-native-sound-player:prepareLintJarForPublish
+> Task :react-native-screens:generateReleaseLintModel
+> Task :react-native-sound-player:prepareReleaseArtProfile
+> Task :react-native-sound-player:mergeReleaseJavaResource
+> Task :react-native-sound-player:extractProguardFiles
+> Task :react-native-sound-player:syncReleaseLibJars
+> Task :react-native-sound-player:bundleReleaseLocalLintAar
+> Task :react-native-sound-player:writeReleaseLintModelMetadata
+> Task :react-native-svg:processReleaseJavaRes NO-SOURCE
+> Task :react-native-svg:mergeReleaseJniLibFolders
+> Task :react-native-svg:bundleLibRuntimeToJarRelease
+> Task :react-native-sound-player:generateReleaseLintModel
+> Task :react-native-svg:createFullJarRelease
+> Task :react-native-svg:mergeReleaseNativeLibs NO-SOURCE
+> Task :react-native-svg:stripReleaseDebugSymbols NO-SOURCE
+> Task :react-native-svg:copyReleaseJniLibsProjectAndLocalJars
+> Task :react-native-svg:extractDeepLinksForAarRelease
+> Task :react-native-svg:extractReleaseAnnotations
+> Task :react-native-svg:mergeReleaseGeneratedProguardFiles
+> Task :react-native-svg:mergeReleaseConsumerProguardFiles
+> Task :react-native-svg:mergeReleaseShaders
+> Task :react-native-svg:compileReleaseShaders NO-SOURCE
+> Task :react-native-svg:generateReleaseAssets UP-TO-DATE
+> Task :react-native-svg:packageReleaseAssets
+> Task :react-native-svg:prepareLintJarForPublish
+> Task :react-native-svg:prepareReleaseArtProfile
+> Task :react-native-svg:mergeReleaseJavaResource
+> Task :react-native-svg:extractProguardFiles
+> Task :react-native-svg:syncReleaseLibJars
+> Task :react-native-svg:bundleReleaseLocalLintAar
+> Task :react-native-svg:writeReleaseLintModelMetadata
+> Task :react-native-vector-icons:processReleaseJavaRes NO-SOURCE
+> Task :react-native-vector-icons:bundleLibRuntimeToJarRelease
+> Task :react-native-vector-icons:mergeReleaseJniLibFolders
+> Task :react-native-vector-icons:createFullJarRelease
+> Task :react-native-vector-icons:mergeReleaseNativeLibs NO-SOURCE
+> Task :react-native-vector-icons:stripReleaseDebugSymbols NO-SOURCE
+> Task :react-native-vector-icons:copyReleaseJniLibsProjectAndLocalJars
+> Task :react-native-svg:generateReleaseLintModel
+> Task :react-native-vector-icons:extractDeepLinksForAarRelease
+> Task :react-native-vector-icons:extractReleaseAnnotations
+> Task :react-native-vector-icons:mergeReleaseGeneratedProguardFiles
+> Task :react-native-vector-icons:mergeReleaseConsumerProguardFiles
+> Task :react-native-vector-icons:mergeReleaseShaders
+> Task :react-native-vector-icons:compileReleaseShaders NO-SOURCE
+> Task :react-native-vector-icons:generateReleaseAssets UP-TO-DATE
+> Task :react-native-vector-icons:packageReleaseAssets
+> Task :react-native-vector-icons:prepareLintJarForPublish
+> Task :react-native-vector-icons:prepareReleaseArtProfile
+> Task :react-native-vector-icons:extractProguardFiles
+> Task :react-native-vector-icons:mergeReleaseJavaResource
+> Task :react-native-vector-icons:writeReleaseLintModelMetadata
+> Task :react-native-vector-icons:syncReleaseLibJars
+> Task :react-native-vector-icons:bundleReleaseLocalLintAar
+> Task :react-native-video:processReleaseJavaRes
+> Task :react-native-video:bundleLibRuntimeToJarRelease
+> Task :react-native-vector-icons:generateReleaseLintModel
+> Task :react-native-video:createFullJarRelease
+> Task :react-native-video:mergeReleaseJniLibFolders
+> Task :react-native-video:mergeReleaseNativeLibs NO-SOURCE
+> Task :react-native-video:stripReleaseDebugSymbols NO-SOURCE
+> Task :react-native-video:copyReleaseJniLibsProjectAndLocalJars
+> Task :react-native-video:extractDeepLinksForAarRelease
+> Task :react-native-video:extractReleaseAnnotations
+> Task :react-native-video:mergeReleaseGeneratedProguardFiles
+> Task :react-native-video:mergeReleaseConsumerProguardFiles
+> Task :react-native-video:mergeReleaseShaders
+> Task :react-native-video:compileReleaseShaders NO-SOURCE
+> Task :react-native-video:generateReleaseAssets UP-TO-DATE
+> Task :react-native-video:packageReleaseAssets
+> Task :react-native-video:prepareLintJarForPublish
+> Task :react-native-video:prepareReleaseArtProfile
+> Task :react-native-video:mergeReleaseJavaResource
+> Task :react-native-video:extractProguardFiles
+> Task :react-native-video:syncReleaseLibJars
+> Task :react-native-video:bundleReleaseLocalLintAar
+> Task :react-native-video:writeReleaseLintModelMetadata
+> Task :react-native-vision-camera:processReleaseJavaRes
+> Task :react-native-vision-camera:bundleLibRuntimeToJarRelease
+> Task :react-native-video:generateReleaseLintModel
+> Task :react-native-vision-camera:createFullJarRelease
+
+> Task :react-native-vision-camera:configureCMakeRelWithDebInfo[arm64-v8a]
+C/C++: VisionCamera: Frame Processors: OFF!
+
+> Task :react-native-vision-camera:buildCMakeRelWithDebInfo[arm64-v8a]
+
+> Task :react-native-vision-camera:configureCMakeRelWithDebInfo[armeabi-v7a]
+C/C++: VisionCamera: Frame Processors: OFF!
+
+> Task :react-native-vision-camera:buildCMakeRelWithDebInfo[armeabi-v7a]
+
+> Task :react-native-vision-camera:configureCMakeRelWithDebInfo[x86]
+C/C++: VisionCamera: Frame Processors: OFF!
+
+> Task :react-native-vision-camera:buildCMakeRelWithDebInfo[x86]
+
+> Task :react-native-vision-camera:configureCMakeRelWithDebInfo[x86_64]
+C/C++: VisionCamera: Frame Processors: OFF!
+
+> Task :react-native-vision-camera:buildCMakeRelWithDebInfo[x86_64]
+> Task :react-native-vision-camera:mergeReleaseJniLibFolders
+> Task :react-native-vision-camera:extractDeepLinksForAarRelease
+> Task :react-native-vision-camera:extractReleaseAnnotations
+> Task :react-native-vision-camera:mergeReleaseGeneratedProguardFiles
+> Task :react-native-vision-camera:mergeReleaseConsumerProguardFiles
+> Task :react-native-vision-camera:mergeReleaseShaders
+> Task :react-native-vision-camera:compileReleaseShaders NO-SOURCE
+> Task :react-native-vision-camera:generateReleaseAssets UP-TO-DATE
+> Task :react-native-vision-camera:packageReleaseAssets
+> Task :react-native-vision-camera:mergeReleaseNativeLibs
+> Task :react-native-vision-camera:externalNativeBuildRelease
+> Task :react-native-vision-camera:generateJsonModelRelease
+> Task :react-native-vision-camera:prefabReleaseConfigurePackage
+> Task :react-native-vision-camera:stripReleaseDebugSymbols
+> Task :react-native-vision-camera:prefabReleasePackage
+> Task :react-native-vision-camera:prepareLintJarForPublish
+> Task :react-native-vision-camera:prepareReleaseArtProfile
+> Task :react-native-vision-camera:copyReleaseJniLibsProjectAndLocalJars
+> Task :react-native-vision-camera:extractProguardFiles
+> Task :react-native-vision-camera:mergeReleaseJavaResource
+> Task :react-native-vision-camera:writeReleaseLintModelMetadata
+> Task :react-native-vision-camera:syncReleaseLibJars
+> Task :react-native-vision-camera:bundleReleaseLocalLintAar
+> Task :sayem314_react-native-keep-awake:processReleaseJavaRes NO-SOURCE
+> Task :sayem314_react-native-keep-awake:bundleLibRuntimeToJarRelease
+> Task :sayem314_react-native-keep-awake:mergeReleaseJniLibFolders
+> Task :sayem314_react-native-keep-awake:createFullJarRelease
+> Task :sayem314_react-native-keep-awake:mergeReleaseNativeLibs NO-SOURCE
+> Task :sayem314_react-native-keep-awake:stripReleaseDebugSymbols NO-SOURCE
+> Task :sayem314_react-native-keep-awake:copyReleaseJniLibsProjectAndLocalJars
+> Task :sayem314_react-native-keep-awake:extractDeepLinksForAarRelease
+> Task :sayem314_react-native-keep-awake:extractReleaseAnnotations
+> Task :sayem314_react-native-keep-awake:mergeReleaseGeneratedProguardFiles
+> Task :sayem314_react-native-keep-awake:mergeReleaseConsumerProguardFiles
+> Task :sayem314_react-native-keep-awake:mergeReleaseShaders
+> Task :sayem314_react-native-keep-awake:compileReleaseShaders NO-SOURCE
+> Task :sayem314_react-native-keep-awake:generateReleaseAssets UP-TO-DATE
+> Task :sayem314_react-native-keep-awake:packageReleaseAssets
+> Task :sayem314_react-native-keep-awake:prepareLintJarForPublish
+> Task :sayem314_react-native-keep-awake:prepareReleaseArtProfile
+> Task :sayem314_react-native-keep-awake:mergeReleaseJavaResource
+> Task :sayem314_react-native-keep-awake:extractProguardFiles
+> Task :sayem314_react-native-keep-awake:syncReleaseLibJars
+> Task :sayem314_react-native-keep-awake:bundleReleaseLocalLintAar
+> Task :sayem314_react-native-keep-awake:writeReleaseLintModelMetadata
+> Task :sayem314_react-native-keep-awake:generateReleaseLintModel
+> Task :react-native-vision-camera:generateReleaseLintModel
+> Task :app:generateReleaseLintVitalReportModel
+> Task :react-native-agora:generateReleaseLintVitalModel
+> Task :react-native-async-storage_async-storage:generateReleaseLintVitalModel
+> Task :react-native-document-picker:generateReleaseLintVitalModel
+> Task :react-native-gesture-handler:generateReleaseLintVitalModel
+> Task :react-native-image-crop-picker:generateReleaseLintVitalModel
+> Task :react-native-linear-gradient:generateReleaseLintVitalModel
+> Task :react-native-permissions:generateReleaseLintVitalModel
+> Task :react-native-picker_picker:generateReleaseLintVitalModel
+> Task :react-native-razorpay:generateReleaseLintVitalModel
+> Task :react-native-safe-area-context:generateReleaseLintVitalModel
+> Task :react-native-screens:generateReleaseLintVitalModel
+> Task :react-native-sound-player:generateReleaseLintVitalModel
+> Task :react-native-svg:generateReleaseLintVitalModel
+> Task :react-native-vector-icons:generateReleaseLintVitalModel
+> Task :react-native-video:generateReleaseLintVitalModel
+> Task :react-native-vision-camera:generateReleaseLintVitalModel
+> Task :sayem314_react-native-keep-awake:generateReleaseLintVitalModel
+> Task :app:mergeReleaseJniLibFolders
+> Task :react-native-agora:copyReleaseJniLibsProjectOnly
+> Task :react-native-async-storage_async-storage:copyReleaseJniLibsProjectOnly
+> Task :react-native-document-picker:copyReleaseJniLibsProjectOnly
+> Task :react-native-gesture-handler:copyReleaseJniLibsProjectOnly
+> Task :react-native-image-crop-picker:copyReleaseJniLibsProjectOnly
+> Task :react-native-linear-gradient:copyReleaseJniLibsProjectOnly
+> Task :react-native-permissions:copyReleaseJniLibsProjectOnly
+> Task :react-native-picker_picker:copyReleaseJniLibsProjectOnly
+> Task :react-native-razorpay:copyReleaseJniLibsProjectOnly
+> Task :react-native-safe-area-context:copyReleaseJniLibsProjectOnly
+> Task :react-native-sound-player:copyReleaseJniLibsProjectOnly
+> Task :react-native-svg:copyReleaseJniLibsProjectOnly
+> Task :react-native-vector-icons:copyReleaseJniLibsProjectOnly
+> Task :react-native-video:copyReleaseJniLibsProjectOnly
+> Task :react-native-screens:copyReleaseJniLibsProjectOnly
+> Task :sayem314_react-native-keep-awake:copyReleaseJniLibsProjectOnly
+> Task :react-native-vision-camera:copyReleaseJniLibsProjectOnly
+> Task :app:checkReleaseDuplicateClasses
+> Task :app:dexBuilderRelease
+> Task :app:desugarReleaseFileDependencies
+> Task :app:mergeReleaseNativeLibs
+> Task :react-native-agora:lintVitalAnalyzeRelease
+> Task :app:lintVitalAnalyzeRelease
+> Task :react-native-async-storage_async-storage:lintVitalAnalyzeRelease
+
+> Task :app:mergeExtDexRelease
+WARNING: /Users/siddhantnigam/.gradle/caches/transforms-3/670521352a5e6f3e9b591b2b59e4319a/transformed/jetified-standard-core-1.6.56-runtime.jar: D8: The companion object Companion could not be found in class com.razorpay.i_$z_
+
+> Task :react-native-image-crop-picker:lintVitalAnalyzeRelease
+> Task :react-native-document-picker:lintVitalAnalyzeRelease
+> Task :app:mergeReleaseShaders
+> Task :app:compileReleaseShaders NO-SOURCE
+> Task :app:generateReleaseAssets
+> Task :app:mergeReleaseArtProfile
+
+> Task :app:stripReleaseDebugSymbols
+Unable to strip the following libraries, packaging them as they are: libucrop.so.
+
+> Task :app:mergeReleaseGlobalSynthetics
+> Task :react-native-linear-gradient:lintVitalAnalyzeRelease
+> Task :app:mergeReleaseAssets
+> Task :app:processReleaseJavaRes
+> Task :app:extractReleaseNativeSymbolTables
+> Task :app:compressReleaseAssets
+> Task :app:mergeReleaseNativeDebugMetadata
+> Task :react-native-picker_picker:lintVitalAnalyzeRelease
+> Task :app:mergeReleaseJavaResource
+> Task :react-native-permissions:lintVitalAnalyzeRelease
+> Task :app:collectReleaseDependencies
+> Task :app:sdkReleaseDependencyData
+> Task :app:validateSigningRelease
+> Task :app:writeReleaseAppMetadata
+> Task :app:writeReleaseSigningConfigVersions
+> Task :react-native-agora:bundleReleaseAar
+> Task :react-native-agora:mapReleaseSourceSetPaths
+> Task :react-native-agora:mergeReleaseResources
+> Task :react-native-async-storage_async-storage:bundleReleaseAar
+> Task :react-native-async-storage_async-storage:mapReleaseSourceSetPaths
+> Task :react-native-agora:verifyReleaseResources
+> Task :react-native-async-storage_async-storage:mergeReleaseResources
+> Task :react-native-agora:assembleRelease
+> Task :react-native-document-picker:bundleReleaseAar
+> Task :react-native-document-picker:mapReleaseSourceSetPaths
+> Task :react-native-razorpay:lintVitalAnalyzeRelease
+> Task :react-native-async-storage_async-storage:verifyReleaseResources
+> Task :react-native-document-picker:mergeReleaseResources
+> Task :react-native-async-storage_async-storage:assembleRelease
+> Task :react-native-gesture-handler:bundleReleaseAar
+> Task :react-native-gesture-handler:mapReleaseSourceSetPaths
+> Task :react-native-document-picker:verifyReleaseResources
+> Task :react-native-gesture-handler:mergeReleaseResources
+> Task :react-native-document-picker:assembleRelease
+> Task :react-native-image-crop-picker:bundleReleaseAar
+> Task :react-native-image-crop-picker:mapReleaseSourceSetPaths
+> Task :react-native-safe-area-context:lintVitalAnalyzeRelease
+> Task :react-native-gesture-handler:verifyReleaseResources
+> Task :react-native-image-crop-picker:mergeReleaseResources
+> Task :react-native-gesture-handler:assembleRelease
+> Task :app:optimizeReleaseResources
+> Task :react-native-linear-gradient:bundleReleaseAar
+> Task :react-native-linear-gradient:mapReleaseSourceSetPaths
+> Task :react-native-image-crop-picker:verifyReleaseResources
+> Task :react-native-linear-gradient:mergeReleaseResources
+> Task :react-native-image-crop-picker:assembleRelease
+> Task :react-native-permissions:bundleReleaseAar
+> Task :react-native-permissions:mapReleaseSourceSetPaths
+> Task :react-native-linear-gradient:verifyReleaseResources
+> Task :react-native-permissions:mergeReleaseResources
+> Task :react-native-linear-gradient:assembleRelease
+> Task :react-native-picker_picker:bundleReleaseAar
+> Task :react-native-picker_picker:mapReleaseSourceSetPaths
+> Task :react-native-permissions:verifyReleaseResources
+> Task :react-native-sound-player:lintVitalAnalyzeRelease
+> Task :react-native-picker_picker:mergeReleaseResources
+> Task :react-native-permissions:assembleRelease
+> Task :react-native-razorpay:bundleReleaseAar
+> Task :react-native-razorpay:mapReleaseSourceSetPaths
+> Task :react-native-picker_picker:verifyReleaseResources
+> Task :react-native-razorpay:mergeReleaseResources
+> Task :react-native-picker_picker:assembleRelease
+> Task :react-native-safe-area-context:bundleReleaseAar
+> Task :react-native-safe-area-context:mapReleaseSourceSetPaths
+> Task :app:mergeDexRelease
+> Task :react-native-safe-area-context:mergeReleaseResources
+> Task :react-native-razorpay:verifyReleaseResources
+> Task :react-native-razorpay:assembleRelease
+> Task :react-native-screens:bundleReleaseAar
+> Task :react-native-screens:mapReleaseSourceSetPaths
+> Task :react-native-safe-area-context:verifyReleaseResources
+> Task :app:compileReleaseArtProfile
+> Task :react-native-screens:mergeReleaseResources
+> Task :react-native-safe-area-context:assembleRelease
+> Task :react-native-sound-player:bundleReleaseAar
+> Task :react-native-sound-player:mapReleaseSourceSetPaths
+> Task :react-native-sound-player:mergeReleaseResources
+> Task :react-native-svg:bundleReleaseAar
+> Task :react-native-svg:mapReleaseSourceSetPaths
+> Task :react-native-screens:verifyReleaseResources
+> Task :react-native-sound-player:verifyReleaseResources
+> Task :react-native-gesture-handler:lintVitalAnalyzeRelease
+> Task :react-native-svg:mergeReleaseResources
+> Task :react-native-screens:assembleRelease
+> Task :react-native-sound-player:assembleRelease
+> Task :react-native-vector-icons:bundleReleaseAar
+> Task :react-native-vector-icons:mapReleaseSourceSetPaths
+> Task :react-native-svg:lintVitalAnalyzeRelease
+> Task :react-native-vector-icons:lintVitalAnalyzeRelease
+> Task :react-native-svg:verifyReleaseResources
+> Task :react-native-vector-icons:mergeReleaseResources
+> Task :react-native-svg:assembleRelease
+> Task :react-native-video:bundleReleaseAar
+> Task :react-native-video:mapReleaseSourceSetPaths
+> Task :react-native-vector-icons:verifyReleaseResources
+> Task :react-native-video:mergeReleaseResources
+> Task :react-native-vector-icons:assembleRelease
+> Task :react-native-screens:lintVitalAnalyzeRelease
+> Task :react-native-vision-camera:bundleReleaseAar
+> Task :react-native-vision-camera:mapReleaseSourceSetPaths
+> Task :sayem314_react-native-keep-awake:lintVitalAnalyzeRelease
+> Task :react-native-video:verifyReleaseResources
+> Task :react-native-vision-camera:mergeReleaseResources
+> Task :react-native-video:assembleRelease
+> Task :sayem314_react-native-keep-awake:bundleReleaseAar
+> Task :sayem314_react-native-keep-awake:mapReleaseSourceSetPaths
+> Task :react-native-vision-camera:verifyReleaseResources
+> Task :sayem314_react-native-keep-awake:mergeReleaseResources
+> Task :react-native-vision-camera:assembleRelease
+> Task :sayem314_react-native-keep-awake:verifyReleaseResources
+> Task :app:packageRelease
+> Task :app:createReleaseApkListingFileRedirect
+> Task :sayem314_react-native-keep-awake:assembleRelease
+> Task :react-native-video:lintVitalAnalyzeRelease
+> Task :react-native-vision-camera:lintVitalAnalyzeRelease
+> Task :app:lintVitalReportRelease
+> Task :app:lintVitalRelease
+> Task :app:assembleRelease
+
+BUILD SUCCESSFUL in 4m 58s
+728 actionable tasks: 724 executed, 4 up-to-date

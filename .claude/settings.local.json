@@ -42,7 +42,10 @@
       "Bash(watchman:*)",
       "Bash(../gradlew assembleDebug:*)",
       "Bash(npx metro:*)",
-      "Bash(tee:*)"
+      "Bash(tee:*)",
+      "Bash(ANDROID_HOME=/Users/siddhantnigam/Library/Android/sdk ./gradlew assembleRelease:*)",
+      "Bash(ANDROID_HOME=/Users/siddhantnigam/Library/Android/sdk android/gradlew assembleRelease:*)",
+      "Bash(ANDROID_HOME=/Users/siddhantnigam/Library/Android/sdk ./android/gradlew assembleRelease:*)"
     ],
     "deny": []
   }

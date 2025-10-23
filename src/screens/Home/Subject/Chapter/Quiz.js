@@ -693,10 +693,17 @@ const QuizPage = ({ navigation, route }) => {
   return (
     <View style={styles.container}>
       <LinearGradient colors={['#263755', '#1ABC9C']} style={styles.heading}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Image source={require('../../../../images/BackBtn.png')} style={styles.backBtn} />
-        </TouchableOpacity>
-        <Text style={styles.headingTxt}>  Questions</Text>
+        <View style={styles.headerLeft}>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Image source={require('../../../../images/BackBtn.png')} style={styles.backBtn} />
+          </TouchableOpacity>
+        </View>
+        <Text style={styles.headingTxt}>Questions</Text>
+        <View style={styles.headerRight}>
+          <TouchableOpacity onPress={handleContact} style={styles.callBtn}>
+            <Icon name="call" size={22} color="white" />
+          </TouchableOpacity>
+        </View>
       </LinearGradient>
       <ScrollView contentContainerStyle={styles.scrollView}>
         {/* <Text style={{ color: 'lightgreen', fontSize: 25 }}>{name}</Text> */}
@@ -831,9 +838,24 @@ const styles = StyleSheet.create({
     height: verticalScale(50),
     flexDirection: 'row',
     alignItems: 'center',
-    padding: moderateScale(12),
+    paddingHorizontal: moderateScale(12),
     backgroundColor: '#E9E9E9',
-    text: 'center',
+    justifyContent: 'space-between',
+  },
+  headerLeft: {
+    width: horizontalScale(40),
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+  },
+  headerRight: {
+    width: horizontalScale(40),
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+  },
+  callBtn: {
+    padding: moderateScale(6),
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   // backBtn: {
   //   width: horizontalScale(25),
