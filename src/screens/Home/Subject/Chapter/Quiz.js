@@ -515,7 +515,7 @@ const QuizPage = ({ navigation, route }) => {
 
     } else {
       Alert.alert("Thank you", "Thank you for completing the quiz!");
-      navigation.navigate('Result', { id: questionData.length, name: name });
+      // navigation.navigate('Result', { id: questionData.length, name: name });
     }
 
     // Animating fade transition

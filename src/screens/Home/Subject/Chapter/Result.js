@@ -111,9 +111,9 @@ import { THEME_COLOR } from '../../../../utils/Colors'
 
 const Result = () => {
   return (
-<View style={styles.container}>
-<View style={styles.header}>
-      <Text>Thank You </Text>
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Text>Thank You </Text>
       </View>
     </View>
   )
@@ -121,18 +121,18 @@ const Result = () => {
 
 export default Result
 const styles = StyleSheet.create({
-    container: {
+  container: {
     flex: 1,
-    backgroundColor: THEME_COLOR,
+    backgroundColor: 'lightgreen',
     padding: 20,
   },
 
-    header: {
-    backgroundColor: 'lightcoral',
+  header: {
+    backgroundColor: 'lightgreen',
     padding: 15,
     borderRadius: 8,
     marginBottom: 10,
     alignItems: 'center',
-    marginTop:25
+    marginTop: 25
   },
 })

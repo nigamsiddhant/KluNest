@@ -388,7 +388,8 @@ const English = ({ navigation, route }) => {
           { cancelable: false }
         );
       } else {
-        navigation.navigate('SubCategoryV2', { id: item.id, name: item.name, studentChaptId: studentChapterId, subjectId: route.params.id, item: item });
+        // navigation.navigate('SubCategoryV2', { id: item.id, name: item.name, studentChaptId: studentChapterId, subjectId: route.params.id, item: item });
+        navigation.navigate('ContentScreen', { id: item.id, name: item.name, studentChaptId: studentChapterId, subjectId: route.params.id, item: item });
         // navigation.navigate('Quiz', { id: item.id, name: item.name, studentChaptId: studentChapterId, subjectId: route.params.id, item: item });
         // console.log("chapter.......id", item.id);
       }

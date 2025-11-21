@@ -9,74 +9,13 @@ import axios from 'axios';
 import { BASE_URL, STUDENT_SUBSCRIPTION, SUBJECT_CHAPTERS } from '../../../constant/StringAPI';
 import { FlatList } from 'react-native-gesture-handler';
 
-const SubCategoryV2 = ({ navigation, route }) => {
+const TextContentScreen = ({ navigation, route }) => {
     const { id, name } = route.params;
     console.log("siddhant head page...", route.params.item);
     console.log("topics data:", route.params.item?.topics);
-    if (route.params.item?.topics) {
-        route.params.item.topics.forEach((topic, index) => {
-            console.log(`Topic ${index}:`, topic);
-            console.log(`Topic ${index} questions:`, topic.questions);
-        });
-    }
-    const [chaptersData, setChaptersData] = useState([]);
-    const [loading, setLoding] = useState(false);
-    const [paymentStatus, setPaymentStatus] = useState(false); // State to store payment status
-    const [studentChapterId, setStudentChapterId] = useState([]);
-
-
-
-
-
-    const Chapter = ({ navigation, item, index }) => {
-        const handleChapterClick = (item, index) => {
-
-            console.log("wtf man......", item);
-            navigation.navigate('Quiz', { id: item.id, name: item.name, studentChaptId: studentChapterId, subjectId: route.params.id, item: route.params.item, indexSelected: index });
-            console.log("chapter.......id", item.id);
-
-        };
-
-        return (
-            <View style={{ flex: 1 }}>
-                <TouchableOpacity
-                    onPress={() => handleChapterClick(item, index)}
-                    style={styles.viewChapter}
-                >
-                    <View style={{ width: '75%' }}>
-                        <Text style={{ fontSize: 20, margin: 1, color: 'black' }}>
-                            {item.name}
-                        </Text>
-                    </View>
-
-                    {item.questions && item.questions.length > 0 ? ( // If payment is done or it's the first chapter
-                        <View
-
-                            style={styles.openBtn}
-                        >
-                            <Text style={{ fontSize: 16, color: 'white' }}>Open</Text>
-                        </View>
-                    ) : (
-                        <View style={styles.lockedContainer}>
-                            {/* Add your lock icon or text */}
-                            <Text style={{ fontSize: 16, color: 'black' }}>Locked</Text>
-                        </View>
-                    )}
-                </TouchableOpacity>
-
-
-            </View>
-        );
-    };
 
     return (
         <View style={styles.container}>
-            {/* <View style={styles.heading}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Image source={require('../../../images/BackBtn.png')} style={styles.backBtn} />
-        </TouchableOpacity>
-        <Text style={styles.scienceTxt}>{name} Chapters</Text>
-      </View> */}
 
             <LinearGradient colors={['#263755', '#1ABC9C']} style={styles.heading}>
                 <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -87,18 +26,12 @@ const SubCategoryV2 = ({ navigation, route }) => {
 
 
 
-            <FlatList
-                data={route.params.item['topics']}
-                keyExtractor={item => item.id.toString()}
-                renderItem={({ item, index }) => <Chapter navigation={navigation} item={item} index={index} />}
-                ListEmptyComponent={<Text>No data available</Text>}
-                contentContainerStyle={{ padding: 1 }}
-            />
+            <Text style={styles.ChapterTxt}>{route.params.item['summary_text']}</Text>
         </View>
     );
 };
 
-export default SubCategoryV2;
+export default TextContentScreen;
 
 const styles = StyleSheet.create({
     container: {
@@ -128,9 +61,10 @@ const styles = StyleSheet.create({
         color: THEME_COLOR2,
     },
     ChapterTxt: {
-        fontSize: 22,
-        fontWeight: '700',
-        color: '#1ABC9C',
+        margin: 10,
+        fontSize: 18,
+        fontWeight: '400',
+        color: '#000000',
     },
     viewChapter: {
         width: horizontalScale(330),
