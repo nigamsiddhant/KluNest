@@ -10,6 +10,7 @@ import SignupV2 from '../screens/SignupV2';
 import Home from '../screens/Home';
 import English from '../screens/Home/Subject/English';
 import ContentScreen from '../screens/Home/Subject/ContentScreen';
+import WebViewScreen from '../screens/Home/Subject/WebViewScreen';
 import TextContentScreen from '../screens/Home/Subject/TextContentScreen'
 import SubCategoryV2 from '../screens/Home/Subject/subCategory';
 
@@ -122,6 +123,11 @@ const MainNavigator = () => {
         <Stack.Screen
           name="ContentScreen"
           component={ContentScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="WebViewScreen"
+          component={WebViewScreen}
           options={{ headerShown: false }}
         />
         <Stack.Screen
