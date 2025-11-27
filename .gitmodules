@@ -1,0 +1,3 @@
+[submodule "android/libs/somelibs"]
+	path = android/libs/somelibs
+	url = https://github.com/nigamsiddhant/KluNest.git

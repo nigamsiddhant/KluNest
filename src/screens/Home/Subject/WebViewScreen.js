@@ -7,7 +7,7 @@ import { horizontalScale, verticalScale, moderateScale } from '../../../componen
 
 export default function WebViewScreen({ route, navigation }) {
     const { url, title } = route.params;
-
+    //test
     return (
         <View style={{ flex: 1, backgroundColor: 'white' }}>
 
