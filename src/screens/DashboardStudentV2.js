@@ -48,12 +48,14 @@ const DashboardStudentV2 = ({
         if (name.includes('english')) return require('../images/subjects/english.png');
         if (name.includes('science') || name.includes('physics') || name.includes('chemistry') || name.includes('biology')) return require('../images/subjects/science.png');
         if (name.includes('hindi')) return require('../images/subjects/hindi.png');
-        if (name.includes('geography') || name.includes('gography')) return require('../images/subjects/gography.png');
+        if (name.includes('gography') || name.includes('geography')) return require('../images/subjects/gography.png');
         if (name.includes('history')) return require('../images/subjects/history.png');
         if (name.includes('computer') || name.includes('it')) return require('../images/book_icon.png');
+        if (name.includes('economics')) return require('../images/subjects/economics.png');
+        if (name.includes('civics')) return require('../images/civics.png');
 
         // Default fallback
-        return require('../images/subjects/maths.png');
+        return require('../images/subjects/economics.png');
     };
 
     // Use API data if available, otherwise fallback to default subjects
@@ -73,8 +75,10 @@ const DashboardStudentV2 = ({
             { name: 'English', image: require('../images/subjects/english.png') },
             { name: 'Science', image: require('../images/subjects/science.png') },
             { name: 'Hindi', image: require('../images/subjects/hindi.png') },
-            { name: 'Geography', image: require('../images/subjects/gography.png') },
+            { name: 'Gography', image: require('../images/subjects/gography.png') },
             { name: 'History', image: require('../images/subjects/history.png') },
+            { name: 'Economics', image: require('../images/subjects/economics.png') },
+            { name: 'Civics', image: require('../images/subjects/civics.png') },
         ];
 
     return (

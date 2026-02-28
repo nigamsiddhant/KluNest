@@ -79,8 +79,8 @@ android {
         applicationId "com.klunest"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 6
-        versionName "1.2.0"
+        versionCode 10
+        versionName "1.2.5"
     }
     signingConfigs {
         debug {
@@ -114,6 +114,20 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
+    signingConfigs {
+        debug {
+            storeFile file('debug.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
+        release {
+            storeFile file('klu_nest.keystore')
+            storePassword '969696'
+            keyAlias 'klu_nest'
+            keyPassword '969696'
+        }
+    }
 }
 
 dependencies {
@@ -126,6 +140,7 @@ dependencies {
         implementation jscFlavor
     }
 }
+
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
 apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")

@@ -66,9 +66,26 @@ const ContentScreen = ({ navigation, route }) => {
     const handleChapterClick = (item, index) => {
 
         if (index == 0) {
-            const videoUrl = route.params.item['introduction']['video_file'];
-            if (videoUrl) {
-                navigation.navigate('WebViewScreen', { url: videoUrl, title: "Introduction" });
+            const videoUrl = route.params.item['introduction'];
+            if (videoUrl == null) {
+                Alert.alert(
+                    'Video not available',
+                    'Video is not available for this chapter.',
+                    [{ text: 'OK' }]
+                );
+                return;
+            }
+            const video_file = route.params.item['introduction']['video_file'];
+            if (video_file == null) {
+                Alert.alert(
+                    'Video not available',
+                    'Video is not available for this chapter.',
+                    [{ text: 'OK' }]
+                );
+                return;
+            }
+            if (video_file) {
+                navigation.navigate('WebViewScreen', { url: video_file, title: "Introduction" });
             }
         }
 
@@ -76,6 +93,14 @@ const ContentScreen = ({ navigation, route }) => {
             const summary_type = route.params.item['summary_type'];
 
             if (summary_type == 'text') {
+                if (route.params.item['summary_text'] == null) {
+                    Alert.alert(
+                        'Summary not available',
+                        'Text summary is not available for this chapter.',
+                        [{ text: 'OK' }]
+                    );
+                    return;
+                }
                 navigation.navigate('TextContentScreen', {
                     id,
                     name,
@@ -85,12 +110,31 @@ const ContentScreen = ({ navigation, route }) => {
                 });
             }
             else if (summary_type == 'audio') {
-                navigation.navigate('WebViewScreen', { url: route.params.item['summary_audio_file'], title: "Audio Summary" });
+                if (route.params.item['summary_audio_file'] == null) {
+                    Alert.alert(
+                        'Summary not available',
+                        'audio summary is not available for this chapter.',
+                        [{ text: 'OK' }]
+                    );
+                    return;
+                }
+                navigation.navigate('WebViewScreen', { url: `${BASE_URL}${route.params.item['summary_audio_file']}`, title: "Audio Summary" });
             }
+        } else if (index == 2) {
+            if (route.params.item['topics'].length == 0) {
+                Alert.alert(
+                    'Topics not available',
+                    'Topics is not available for this chapter.',
+                    [{ text: 'OK' }]
+                );
+                return;
+            }
+            navigation.navigate('SubCategoryV2', { id: item.id, name: item.name, studentChaptId: studentChapterId, subjectId: route.params.id, item: route.params.item });
         }
 
         else if (index == 3) {
             const url = route.params.item['ai_text_based_qa'];
+            console.log("Introduction Video URL:", url);
             if (url) navigation.navigate('WebViewScreen', { url });
         }
 
